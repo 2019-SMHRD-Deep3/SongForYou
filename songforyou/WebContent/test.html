@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+
+</style>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+
+
+
+
+</head>
+
+<body>
+
+<ul class = 'ss'><li class = 'scale listCheck' align = 'left'>하이</li></ul>
+<input type='text' id='input1' onkeydown='keydown()'/>
+<ul class = 'aa'><li class = 'a' align = 'left'>지코</li><span><li class = 'a' align = 'left'>아무노래</li></ul>
+<ul class = 'aa'><li class = 'a' align = 'left'>아이유</li><span><li class = 'a' align = 'left'>봄</li></ul>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<style>
+.background{
+color:red;
+}
+
+</style>
+
+
+<script>
+
+var li = $('.aa');
+var liSelected;
+$(window).on('keydown', function(e){
+var selected;
+if(e.which === 40){
+	if(liSelected){
+		liSelected.removeClass('background');
+		next = liSelected.next();
+		if(next.length > 0){
+			liSelected = next.addClass('background');
+			selected = next.text();
+
+		}else{
+			liSelected = li.eq(0).addClass('background');
+			selected = li.eq(0).text();
+		}
+	}else{
+		liSelected = li.eq(0).addClass('background');
+			selected = li.eq(0).text();
+	}
+}else if(e.which === 38){
+	if(liSelected){
+		liSelected.removeClass('background');
+		next = liSelected.prev();
+		if(next.length > 0){
+			liSelected = next.addClass('background');
+			selected = next.text();
+
+		}else{
+
+			liSelected = li.last().addClass('background');
+			selected = li.last().text()
+		}
+	}else{
+
+		liSelected = li.last().addClass('background');
+		selected = li.last().text()
+	}
+}
+console.log(selected)
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
