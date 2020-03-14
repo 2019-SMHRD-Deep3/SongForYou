@@ -86,11 +86,13 @@ public class MemberDAO {
 			if (rs.next()) {
 				String id1 = rs.getString(2);
 				String name1 = rs.getString(4);
+				int idnum1 = rs.getInt(1);
 				int age1 = rs.getInt(5);
 				int sex1 = rs.getInt(6);
 
-				info = new MemberDTO(id1, name1, age1, sex1);
+				info = new MemberDTO(id1, name1, idnum1, age1, sex1);
 			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
