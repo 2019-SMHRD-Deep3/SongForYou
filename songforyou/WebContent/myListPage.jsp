@@ -1,4 +1,5 @@
-mylistpage.jsp
+<%@page import="model.MusicDTO"%>
+<%@page import="model.MusicBucketDAO"%>
 <%@page import="model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -86,6 +87,9 @@ form {
 <body>
    <%
       MemberDTO info = (MemberDTO)session.getAttribute("info");
+      MusicBucketDAO dao = new MusicBucketDAO();
+      
+   	  MusicDTO dto = null; 
    %>
 <div class="wrapper style1">
 
@@ -98,7 +102,13 @@ form {
             </header>
             <div class="row">
             
+           <%--  <%dao.songid();%> --%>
             
+            <%dao.bucketlistjoin(info.getIdnum());%>
+            
+            <script>
+            	
+            </script>
             
             
             <!--    <article class="col-4 col-12-mobile special">

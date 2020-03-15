@@ -26,6 +26,7 @@ public class LoginService extends HttpServlet {
 			
 			session.setAttribute("id", info.getId());
 			session.setAttribute("pw", info.getPw());
+			session.setAttribute("idnum", info.getIdnum());
 			session.setAttribute("info", info);
 			System.out.println(info);
 			response.sendRedirect("index.jsp");

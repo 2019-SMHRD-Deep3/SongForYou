@@ -111,7 +111,9 @@ background-color:white;
 }
 
 
-
+#testff{
+	background-color:black;
+}
 
 
 </style>
@@ -202,7 +204,7 @@ background-color:white;
 				<li class=scale><a href="index.jsp">Home</a></li>
 				<li class=scale><a href="#">Mypage</a>
 					<ul class=scale>
-						<li class=scale><a href="myListPage.jsp">Mylist</a></li>
+						<li class=scale><a id = 'mylist' href="myListPage.jsp">Mylist</a></li>
 						<li class=scale><a href="mypage.jsp">Updateinfo</a></li>
 					</ul></li>
 				<li class=scale><a href="LogoutService">Logout</a></li>
@@ -214,6 +216,7 @@ background-color:white;
 			<header id="colors">
 				<h2>
 					<%=info.getName()%>님 <strong>쏭뽀유</strong>를 이용하고 계십니다.
+					
 				</h2>
 
 				<form action="#">
@@ -252,9 +255,10 @@ background-color:white;
 				<button align="center" type="button" class="cart" id="cartt">
 					<img src="images/record.png" width="30px" height="30px">
 				</button>
-				<br> <br>
+				<br> 
+				<br>
 
-
+				
 				<article class="sj">
 					<a href="#" class="image featured"> <img src="images/pic01.jpg"
 						alt="" /></a>
@@ -263,8 +267,7 @@ background-color:white;
 						<input src = 'images/addgray.png' class="gray" type = "image" border="0" name = "add" >	
 						</h3>
 					</header>
-					<p>Commodo id natoque malesuada sollicitudin elit suscipit
-						magna.</p>
+					<p>아무노래</p>
 				</article>
 
 				<article class="sj">
@@ -275,8 +278,7 @@ background-color:white;
 								<input src = 'images/addgray.png' class="gray" type = "image" border="0" name = "add" >	
 						</h3>
 					</header>
-					<p>Commodo id natoque malesuada sollicitudin elit suscipit
-						magna.</p>
+					<p>아무데나</p>
 				</article>
 
 				<article class="sj">
@@ -287,8 +289,7 @@ background-color:white;
 								<input src = 'images/addgray.png' class="gray" type = "image" border="0" name = "add" >	
 						</h3>
 					</header>
-					<p>Commodo id natoque malesuada sollicitudin elit suscipit
-						magna.</p>
+					<p>아무지개</p>
 				</article>
 
 				<article class="sj">
@@ -299,8 +300,7 @@ background-color:white;
 								<input src = 'images/addgray.png' class="gray" type = "image" border="0" name = "add" >	
 						</h3>
 					</header>
-					<p>Commodo id natoque malesuada sollicitudin elit suscipit
-						magna.</p>
+					<p>4</p>
 				</article>
 
 				<article class="sj">
@@ -412,13 +412,6 @@ background-color:white;
 				})
 				
 				</script> -->
-				
-		
-
-
-
-
-
 			</div>
 		</section>
 
@@ -753,6 +746,7 @@ background-color:white;
 	</script>
 
 	<script>
+	
 		$('#search').on('click', function() {
 			var title = $('#inputt').val();
 			console.log(title + "테스트");
@@ -787,47 +781,36 @@ background-color:white;
 	</script> -->
 
 		<script>
+		var musiclist = [];
+		var a = null;
+		var b = null;
+		var m = [];
 				$('.gray').on('click', function() {
-					/* 	$('.sj').css("background-color","#FBC7BE") */
-				
-							$(this).parent().parent().parent().css("background-color","#FBC7BE")
-						
-							   var a = $(this).parent().parent().next().text();
-         
-        					 console.log(a);
-         
-						$.ajax({
-							url : "bucket.do",
-							type : 'post',
-							dataType : "json",
-							//data : {},
-							success : function(result) {
-								
-							alert("성공");
-
-							}
-						})
-						
-				});
-				
-				$('.gray').on('dblclick', function() {
-					/* 	$('.sj').css("background-color","#FBC7BE") */
-					
-				
-							$(this).parent().parent().parent().css("background-color","#FFFFFF")
-						
-						/* $.ajax({
-							url : "myListPage.jsp",
-							type : 'post',
-							dataType : "json",
-							data : {},
-							success : function(result) {
-							alert("성공");
-
-							}
-						}) */
+					/* 	$('.sj').css("background-color","#FBC7BE") */							
+										
+        					 b = ($(this).parent().parent().parent().css('background-color'));
+         				
+        					 if(b == "rgb(251, 199, 191)"){
+        						 $(this).parent().parent().parent().css("background-color","rgb(255, 255, 255)")
+        						 a = $(this).parent().parent().next().text();
+        						 var f = musiclist.indexOf(a);
+        						 musiclist.splice(f,1);
+        					 }else{
+        						 $(this).parent().parent().parent().css("background-color","rgb(251, 199, 191)")
+        						  a = $(this).parent().parent().next().text();
+        						 musiclist.push(a);
+        					 }
+    						console.log(musiclist[0]);
+        						console.log(musiclist[1]);
+        						console.log(musiclist[2]);
+        				for(var i; i<musiclist.length;i++){
+        					m = musiclist[i];
+        					console.log(m);
+        				}
 						
 				});
+				
+			
 				</script>
 				
 				<script>
@@ -852,19 +835,53 @@ background-color:white;
       
       $('#cartt').on('click', function(){
          
-         var f = <%=(Integer)session.getAttribute("idnum")%>;
-         console.log(f);
+         var idnum = <%=(Integer)session.getAttribute("idnum")%>;
+         console.log(idnum);
 
          var click1 = $('.sj').children().children().children().text();
          console.log(click1);
+         console.log(b)
+         
+         var e = ($(this).next().next().next().css('background-color'));
+        	
+         
+         if(e =="rgb(251, 199, 190)"){
+             var a = $('.gray').parent().parent().next().text(); 
+        	 console.log(a);
+         }else {
+        	 
+         }
+         console.log(musiclist[0]);
+         
+         for(var i in musiclist){
+        	 m.push(musiclist[i])
+         }
+         console.log(m);
+         
+     	$.ajax({
+			url : "bucket.do",
+			type : 'post',
+			/* dataType : "json", */
+			data : {'idnum' : idnum,'m' : m.join(",")},
+			success : function(result) {
+			alert("성공");
+			}
+            
+		})
+		
+		m = [];
+         
+        
       });
       
+    /*   $('#mylist').on('click', function(){
+    	  
+    
+    	  
+      }); */
+      
+      
    </script>
-
-
-
-
-
 
 </body>
 </html>

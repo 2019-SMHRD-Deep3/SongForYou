@@ -61,7 +61,7 @@ public class MusicDAO {
 			String sql = "select * from songtitle where title like '%'||?||'%'";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, title);
-			rs = psmt.executeQuery(); // resultset객체를 반환한다.
+			rs = psmt.executeQuery();
 
 			while(rs.next()) {
 				// rs.getString("id");
