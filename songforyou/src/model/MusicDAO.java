@@ -54,6 +54,7 @@ public class MusicDAO {
 		
 		String l_singer = null;
 		String l_title = null;
+		String l_img = null;
 		
 		try {
 			getConnection();
@@ -67,9 +68,10 @@ public class MusicDAO {
 				// rs.getString("id");
 				l_title = rs.getString(2);
 				l_singer = rs.getString(4);
+				l_img = rs.getString(5);
 			
 			
-				info = new MusicDTO(l_singer,l_title);  
+				info = new MusicDTO(l_singer,l_title,l_img);  
 				list.add(info);
 			}
 
@@ -83,6 +85,30 @@ public class MusicDAO {
 		
 		return list;
 	}
+	
+	public MusicDTO song() {
+		MusicDTO dto = null;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
