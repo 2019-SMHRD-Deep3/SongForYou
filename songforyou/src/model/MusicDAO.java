@@ -67,14 +67,12 @@ public class MusicDAO {
 				// rs.getString("id");
 				l_title = rs.getString(2);
 				l_singer = rs.getString(4);
-			
-			
+					
 				info = new MusicDTO(l_singer,l_title);  
 				list.add(info);
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close();

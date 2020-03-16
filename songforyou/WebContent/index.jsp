@@ -848,9 +848,7 @@ form {
 		//  })
 		$('#cartt').on('click', function() {
 
-			var idnum =
-	<%=(Integer) session.getAttribute("idnum")%>
-		;
+			var idnum = <%=(Integer) session.getAttribute("idnum")%>;
 			console.log(idnum);
 
 			var click1 = $('.sj').children().children().children().text();

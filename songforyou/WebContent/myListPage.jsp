@@ -43,23 +43,11 @@ p {
 form {
    margin-left: 300px;
 }
-
-/* .ss {
-   background: whitesmoke;
-   margin: 2px;
-   padding: 5px;
-   list-style: none;
-   padding-left: 10em;
+.bin {
+	position : absolut !important;
+	background-color : white !important;
 }
- */
 
-/* .background {
-   background-color: gray !important;
-   margin: 2px;
-   padding: 5px;
-   list-style: none;
-   padding-left: 10em;
-} */
 table {
     width: 100%;
     border-top: 1px solid #444444;
@@ -77,7 +65,14 @@ body{
 	
 input{
 	-webkit-appearance: meter;
+	
 }
+modal-table{
+	display:table;
+	position:relative;
+	width:100%;
+	height:200px;
+	}
 </style>
 </head>
 <body>
@@ -92,26 +87,19 @@ input{
          <section id="features" class="container special">
             <header>
             
-               <h2><%=info.getName() %>´ÔÀÇ MUSIC LIST</h2><br><br><br>
+               <h2><%=info.getName() %>´ÔÀÇ MUSIC LIST</h2><br><br>
 
             </header>
             <div class="row">
 
-
+			<button type="button" class="bin">
+				<img src="images/trash.png" width=50px height=50px>
+			</button><br><br>
 			<table class = "track">
-<!-- 				<colgroup>
-					<col width="42" data-cell="Ã¼Å©¹Ú½º">
-					<col width="*" data-cell="°î/¾Ù¹ü">
-					<col width="250" data-cell="¾ÆÆ¼½ºÆ®">
-					<col width="65" data-cell="µè±â">
-				</colgroup> -->
 				<thead>
-				<tr>
+				<tr bgcolor=#f0f4f4>
 					<th scope="col">
-						<input type="checkbox" name="selectAll" id="detailAllselect" value="true">
-				 	<label for="detailAllselect">
-							<span class="hidden"></span>
-						</label>
+						<input type="checkbox" id="Allselect">
 					</th>
 					<th scope="col" class="info" colspan=2>°î/¾Ù¹ü</th>
 					<th scope="col" class="artist">¾ÆÆ¼½ºÆ®</th>
@@ -120,7 +108,7 @@ input{
 				<tbody>
 					<%for(int i = 0; i<dao.alltitle(dao.songid(info.getIdnum())).size();i++){ %>
 					<tr>
-						<td><input type="checkbox" name="select"></td>
+						<td><input type="checkbox" name="select" class="selectt"></td>
 						<td align=right><img src = <%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getimg()%> width=50 height=50></td>
 						<td align=left><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).gettitle()%></td>
 						<td><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getSinger()%></td>			
@@ -130,8 +118,30 @@ input{
 			</table>
             </div>
          </section>
+      </div>      
+    <script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+      <script>
+    	$("#Allselect").on('click',function(){
+ 		if($("#Allselect").prop("checked")){
+ 			$(".selectt").prop("checked",true);
+ 		}else{
+ 			$(".selectt").prop("checked",false);
+ 		}
+ 	})
+ 	
+  	$('.bin').on('click',function(){
+ 		$.ajax({
+ 			url : ""
+ 		})
+ 	})
 
-      </div>
-
+      </script>
 </body>
 </html>
