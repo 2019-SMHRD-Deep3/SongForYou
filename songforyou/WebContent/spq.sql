@@ -36,16 +36,16 @@ CREATE TABLE "HR"."SONGTITLE"
    
 sel
 
-INSERT INTO songtitle VALUES (1,'아무노래','f','지코',1);
-INSERT INTO songtitle VALUES (2,'아무데나','f','지코',2);
-INSERT INTO songtitle VALUES (3,'아무지개','f','지코',3);
+INSERT INTO songtitle VALUES (1,'아무노래','f','지코','images/amu.jfif');
+INSERT INTO songtitle VALUES (2,'아무데나','f','지코','images/amu.jfif');
+INSERT INTO songtitle VALUES (3,'아무지개','f','지코','images/amu.jfif');
 
 
 insert into songbucket select t.songid, s.idnum from songmember s, songtitle t
 where s.id= 1 and t.title='아무데나'
 insert into songbucket select songid from songtitle where title='아무노래'
 
-
+select title,singer,img from songtitle where songid= 1
 select * from songmember
 select * from songbucket
 select * from songtitle

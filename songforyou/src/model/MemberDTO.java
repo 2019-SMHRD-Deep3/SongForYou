@@ -35,6 +35,8 @@ public MemberDTO(String id, String pw, String name, int age, int sex) {
 	this.age = age;
 	this.sex = sex;
 }
+public MemberDTO() {
+}
 public int getIdnum() {
 	return idnum;
 }

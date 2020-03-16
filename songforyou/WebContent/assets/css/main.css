@@ -67,7 +67,6 @@ input::-moz-focus-inner {
 
 input, select, textarea {
 	-moz-appearance: none;
-	-webkit-appearance: none;
 	-ms-appearance: none;
 	appearance: none;
 }
@@ -1952,7 +1951,7 @@ input, select, textarea {
 	form input[type="password"],
 	form select,
 	form textarea {
-		-webkit-appearance: none;
+		
 		display: block;
 		border: 0;
 		background: #fafafa;
