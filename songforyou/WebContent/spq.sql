@@ -21,6 +21,7 @@ CREATE TABLE "HR"."SONGTITLE"
    "TITLE" VARCHAR2(50 BYTE) NOT NULL ENABLE, 
    "CHORD" VARCHAR2(50 BYTE) NOT NULL ENABLE, 
    "SINGER" VARCHAR2(50 BYTE) NOT NULL ENABLE, 
+   "IMG" VARCHAR2(50 BYTE) NOT NULL ENABLE, 
     CONSTRAINT "SONGTITLE_PK" PRIMARY KEY ("SONGID"))
   
      CREATE TABLE "HR"."SONGBUCKET" 
@@ -35,16 +36,17 @@ CREATE TABLE "HR"."SONGTITLE"
    
 
 
-INSERT INTO songtitle VALUES (1,'아무노래','f','지코');
-INSERT INTO songtitle VALUES (2,'아무데나','f','지코');
-INSERT INTO songtitle VALUES (3,'아무지개','f','지코');
+INSERT INTO songtitle VALUES (1,'아무노래','f','지코','images/amu.jfif');
+INSERT INTO songtitle VALUES (2,'아무데나','f','지코','images/amu.jfif');
+INSERT INTO songtitle VALUES (3,'아무지개','f','지코','images/amu.jfif');
+>>>>>>> branch 'master' of https://github.com/2019-SMHRD-Deep3/SongForYou.git
 
 
 insert into songbucket select t.songid, s.idnum from songmember s, songtitle t
 where s.id= 1 and t.title='아무데나'
 insert into songbucket select songid from songtitle where title='아무노래'
 
-
+select title,singer,img from songtitle where songid= 1
 select * from songmember
 select * from songbucket
 select * from songtitle

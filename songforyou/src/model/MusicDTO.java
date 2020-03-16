@@ -6,6 +6,7 @@ public class MusicDTO {
 	private String singer;
 	private String title;
 	private String chord;
+	private String img;
 	
 	public MusicDTO(String singer, String title) {
 	
@@ -22,6 +23,13 @@ public class MusicDTO {
 	}
 	
 	
+	public MusicDTO(String singer, String title, String img) {
+		this.singer = singer;
+		this.title = title;
+		this.img = img;
+	}
+
+
 	public int getNum() {
 		return num;
 	}
@@ -45,6 +53,15 @@ public class MusicDTO {
 	}
 	public void setChord(String chord) {
 		this.chord = chord;
+	}
+	
+	public String getimg() {
+		return img;
+	}
+	
+	public void setimg(String img) {
+		this.img = img;
+		
 	}
 	
 	

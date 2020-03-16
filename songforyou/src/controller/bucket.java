@@ -26,7 +26,6 @@ public class bucket extends HttpServlet {
 		
 		int idnum = Integer.parseInt(request.getParameter("idnum"));
 		String m = request.getParameter("m");
-		String x = null;
 		
 		MusicBucketDAO dao = new MusicBucketDAO();
 		
@@ -39,8 +38,7 @@ public class bucket extends HttpServlet {
 		
 		String[] value = m.split(",");
 	
-		int list = 0;
-		
+		int list = 0;	
 		
 		
 		  for (int i = 0; i < value.length; i++) {

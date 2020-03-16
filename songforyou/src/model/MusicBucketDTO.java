@@ -5,7 +5,7 @@ public class MusicBucketDTO {
 	private int idnum;
 	private int songid;
 	
-	public MusicBucketDTO(int idnum, int songid) {
+	public MusicBucketDTO(int songid, int idnum) {
 		this.idnum = idnum;
 		this.songid = songid;
 	}

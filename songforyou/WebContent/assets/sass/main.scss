@@ -89,7 +89,6 @@
 
 	input, select, textarea {
 		-moz-appearance: none;
-		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
 	}
@@ -516,7 +515,7 @@
 		input[type="password"],
 		select,
 		textarea {
-			-webkit-appearance: none;
+			
 			display: block;
 			border: 0;
 			background: #fafafa;

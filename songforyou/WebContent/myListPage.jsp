@@ -11,27 +11,11 @@
 <meta charset="utf-8" />
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
+ <link rel="stylesheet" href="assets/css/main.css" />
 <noscript>
    <link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
 <style>
-.scale {
-   transform: scale(1);
-   -webkit-transform: scale(1);
-   -moz-transform: scale(1);
-   -ms-transform: scale(1);
-   -o-transform: scale(1);
-   transition: all 0.3s ease-in-out; /* ºÎµå·¯¿î ¸ð¼ÇÀ» À§ÇØ Ãß°¡*/
-}
-
-.scale:hover {
-   transform: scale(1.2);
-   -webkit-transform: scale(1.2);
-   -moz-transform: scale(1.2);
-   -ms-transform: scale(1.2);
-   -o-transform: scale(1.2);
-}
 
 #input {
    width: 50%;
@@ -60,28 +44,40 @@ form {
    margin-left: 300px;
 }
 
-.ss {
+/* .ss {
    background: whitesmoke;
    margin: 2px;
    padding: 5px;
    list-style: none;
    padding-left: 10em;
 }
+ */
 
-.singer {
-   color: pink;
-   font-size: 25px;
-   font-weight: bold
-}
-
-.background {
+/* .background {
    background-color: gray !important;
    margin: 2px;
    padding: 5px;
    list-style: none;
    padding-left: 10em;
+} */
+table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+    text-align : center;
+  }
+th, td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+  }
+body{
+	background: #FFFFFF !important;
+	color: #5b5b5b;
+	}
+	
+input{
+	-webkit-appearance: meter;
 }
-
 </style>
 </head>
 <body>
@@ -96,60 +92,42 @@ form {
          <section id="features" class="container special">
             <header>
             
-               <h2><%=info.getName() %>´ÔÀÇ MUSIC LIST</h2>
-               <p>Ipsum volutpat consectetur orci metus consequat imperdiet
-                  duis integer semper magna.</p>
+               <h2><%=info.getName() %>´ÔÀÇ MUSIC LIST</h2><br><br><br>
+
             </header>
             <div class="row">
-            
-           <%--  <%dao.songid();%> --%>
-            
-            <%dao.bucketlistjoin(info.getIdnum());%>
-            
-            <script>
-            	
-            </script>
-            
-            
-            <!--    <article class="col-4 col-12-mobile special">
-                  <a href="#" class="image featured"><img src="images/pic07.jpg"
-                     alt="" /></a>
-                  <header>
-                     <h3>
-                        <a href="#">Gravida aliquam penatibus</a>
-                     </h3>
-                  </header>
-                  <p>Amet nullam fringilla nibh nulla convallis tique ante proin
-                     sociis accumsan lobortis. Auctor etiam porttitor phasellus tempus
-                     cubilia ultrices tempor sagittis. Nisl fermentum consequat
-                     integer interdum.</p>
-               </article>
-               <article class="col-4 col-12-mobile special">
-                  <a href="#" class="image featured"><img src="images/pic08.jpg"
-                     alt="" /></a>
-                  <header>
-                     <h3>
-                        <a href="#">Sed quis rhoncus placerat</a>
-                     </h3>
-                  </header>
-                  <p>Amet nullam fringilla nibh nulla convallis tique ante proin
-                     sociis accumsan lobortis. Auctor etiam porttitor phasellus tempus
-                     cubilia ultrices tempor sagittis. Nisl fermentum consequat
-                     integer interdum.</p>
-               </article>
-               <article class="col-4 col-12-mobile special">
-                  <a href="#" class="image featured"><img src="images/pic09.jpg"
-                     alt="" /></a>
-                  <header>
-                     <h3>
-                        <a href="#">Magna laoreet et aliquam</a>
-                     </h3>
-                  </header>
-                  <p>Amet nullam fringilla nibh nulla convallis tique ante proin
-                     sociis accumsan lobortis. Auctor etiam porttitor phasellus tempus
-                     cubilia ultrices tempor sagittis. Nisl fermentum consequat
-                     integer interdum.</p>
-               </article> -->
+
+
+			<table class = "track">
+<!-- 				<colgroup>
+					<col width="42" data-cell="Ã¼Å©¹Ú½º">
+					<col width="*" data-cell="°î/¾Ù¹ü">
+					<col width="250" data-cell="¾ÆÆ¼½ºÆ®">
+					<col width="65" data-cell="µè±â">
+				</colgroup> -->
+				<thead>
+				<tr>
+					<th scope="col">
+						<input type="checkbox" name="selectAll" id="detailAllselect" value="true">
+				 	<label for="detailAllselect">
+							<span class="hidden"></span>
+						</label>
+					</th>
+					<th scope="col" class="info" colspan=2>°î/¾Ù¹ü</th>
+					<th scope="col" class="artist">¾ÆÆ¼½ºÆ®</th>
+					<th scope="col">µè±â</th>
+				</tr></thead>
+				<tbody>
+					<%for(int i = 0; i<dao.alltitle(dao.songid(info.getIdnum())).size();i++){ %>
+					<tr>
+						<td><input type="checkbox" name="select"></td>
+						<td align=right><img src = <%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getimg()%> width=50 height=50></td>
+						<td align=left><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).gettitle()%></td>
+						<td><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getSinger()%></td>			
+						<td></td>			
+					</tr><%} %>
+				</tbody>		
+			</table>
             </div>
          </section>
 
