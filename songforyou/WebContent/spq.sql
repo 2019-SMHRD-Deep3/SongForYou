@@ -33,11 +33,11 @@ CREATE TABLE "HR"."SONGTITLE"
      REFERENCES "HR"."SONGMEMBER" ("IDNUM") ENABLE
    ) 
    
-sel
 
-INSERT INTO songtitle VALUES (1,'아무노래','f','지코',1);
-INSERT INTO songtitle VALUES (2,'아무데나','f','지코',2);
-INSERT INTO songtitle VALUES (3,'아무지개','f','지코',3);
+
+INSERT INTO songtitle VALUES (1,'아무노래','f','지코');
+INSERT INTO songtitle VALUES (2,'아무데나','f','지코');
+INSERT INTO songtitle VALUES (3,'아무지개','f','지코');
 
 
 insert into songbucket select t.songid, s.idnum from songmember s, songtitle t

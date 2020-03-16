@@ -29,6 +29,8 @@ public class LoginService extends HttpServlet {
 			session.setAttribute("idnum", info.getIdnum());
 			session.setAttribute("info", info);
 			System.out.println(info);
+			
+			
 			response.sendRedirect("index.jsp");
 			
 		}else {

@@ -41,9 +41,14 @@
 }
 
 #search {
-	background-color: pink;
-	!
-	important;
+	background-color: #FFC6B3 !important;
+	margin-right:500px;
+	margin-left:20px;
+	width:50px;
+/* flex추가  */	
+	display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 p {
@@ -66,56 +71,60 @@ form {
 .ss {
 	background: whitesmoke;
 	margin: 2px;
+	margin-left: 200px;
 	padding: 5px;
 	list-style: none;
 	padding-left: 10em;
+
 }
 
 .singer {
-	color: pink;
+	color:#E8847B;
 	font-size: 25px;
 	font-weight: bold
 }
 
 .background {
-	background-color: gray !important;
+	background-color: #EAEAEA !important;
 	margin: 2px;
 	padding: 5px;
 	list-style: none;
 	padding-left: 10em;
+	margin-left:200px;
 }
 
 .sj:hover {
 	background-color: #FBC7BE;
-
 }
 
 .cart {
 	position: absolute !important;
-	background-color: empty !important;
+	background-color: #F0F4F4 !important;
 }
-
 
 .gray {
-	width : 30px;
-	height : 30px;
-
-  }
-  
-.btn_img{
-width : 30px;
-	height : 30px;
-}
-.b{
-background-color:white;
+	width: 30px;
+	height: 30px;
 }
 
-
-#testff{
-	background-color:black;
+.btn_img {
+	width: 30px;
+	height: 30px;
 }
 
+.b {
+	background-color: white;
+}
 
+#testff {
+	background-color: black;
+}
+
+#inputt {
+	width: 800px;
+	/* margin-right:350px; */
+	margin-left:200px;
+}
 </style>
 </head>
 <body class="homepage is-preload">
@@ -204,19 +213,19 @@ background-color:white;
 				<li class=scale><a href="index.jsp">Home</a></li>
 				<li class=scale><a href="#">Mypage</a>
 					<ul class=scale>
-						<li class=scale><a id = 'mylist' href="myListPage.jsp">Mylist</a></li>
+						<li class=scale><a id='mylist' href="myListPage.jsp">Mylist</a></li>
 						<li class=scale><a href="mypage.jsp">Updateinfo</a></li>
 					</ul></li>
-				<li class=scale><a href="LogoutService">Logout</a></li>
-			</ul>
+				<li class=scale><a href="Service">Service</a> <li class=scale>
+			<a
+					href="LogoutService">Logout</a></li></ul>
 		</nav>
 		<!-- Banner -->
 		<section id="banner">
 			<br>
 			<header id="colors">
 				<h2>
-					<%=info.getName()%>님 <strong>쏭뽀유</strong>를 이용하고 계십니다.
-					
+					<%=info.getName()%>님 <strong> 쏭뽀유♬</strong>
 				</h2>
 
 				<form action="#">
@@ -226,7 +235,7 @@ background-color:white;
 						<tr>
 							<td align=right><input id=inputt type=text
 								placeholder="노래를 입력해 주세요." autocomplete=off></td>
-							<td align=left><input id=search type="button" value=검색></td>
+							<td align=left><input id=search type="button" value=검색 ></td>
 						</tr>
 
 					</table>
@@ -255,16 +264,16 @@ background-color:white;
 				<button align="center" type="button" class="cart" id="cartt">
 					<img src="images/record.png" width="30px" height="30px">
 				</button>
-				<br> 
-				<br>
+				<br> <br>
 
-				
+
 				<article class="sj">
 					<a href="#" class="image featured"> <img src="images/pic01.jpg"
 						alt="" /></a>
 					<header>
-						<h3> 
-						<input src = 'images/addgray.png' class="gray" type = "image" border="0" name = "add" >	
+						<h3>
+							<input src='images/addgray.png' class="gray" type="image"
+								border="0" name="add">
 						</h3>
 					</header>
 					<p>아무노래</p>
@@ -275,7 +284,8 @@ background-color:white;
 						alt="" /></a>
 					<header>
 						<h3>
-								<input src = 'images/addgray.png' class="gray" type = "image" border="0" name = "add" >	
+							<input src='images/addgray.png' class="gray" type="image"
+								border="0" name="add">
 						</h3>
 					</header>
 					<p>아무데나</p>
@@ -286,7 +296,8 @@ background-color:white;
 						alt="" /></a>
 					<header>
 						<h3>
-								<input src = 'images/addgray.png' class="gray" type = "image" border="0" name = "add" >	
+							<input src='images/addgray.png' class="gray" type="image"
+								border="0" name="add">
 						</h3>
 					</header>
 					<p>아무지개</p>
@@ -297,7 +308,8 @@ background-color:white;
 						alt="" /></a>
 					<header>
 						<h3>
-								<input src = 'images/addgray.png' class="gray" type = "image" border="0" name = "add" >	
+							<input src='images/addgray.png' class="gray" type="image"
+								border="0" name="add">
 						</h3>
 					</header>
 					<p>4</p>
@@ -308,7 +320,8 @@ background-color:white;
 						alt="" /></a>
 					<header>
 						<h3>
-								<input src = 'images/addgray.png' class="gray" type = "image" border="0" name = "add" >	
+							<input src='images/addgray.png' class="gray" type="image"
+								border="0" name="add">
 						</h3>
 					</header>
 					<p>Commodo id natoque malesuada sollicitudin elit suscipit
@@ -320,7 +333,8 @@ background-color:white;
 						alt="" /></a>
 					<header>
 						<h3>
-								<input src = 'images/addgray.png' class="gray" type = "image" border="0" name = "add" >	
+							<input src='images/addgray.png' class="gray" type="image"
+								border="0" name="add">
 						</h3>
 					</header>
 					<p>Commodo id natoque malesuada sollicitudin elit suscipit
@@ -332,7 +346,8 @@ background-color:white;
 						alt="" /></a>
 					<header>
 						<h3>
-								<input src = 'images/addgray.png' class="gray" type = "image" border="0" name = "add" >	
+							<input src='images/addgray.png' class="gray" type="image"
+								border="0" name="add">
 						</h3>
 					</header>
 					<p>Commodo id natoque malesuada sollicitudin elit suscipit
@@ -344,7 +359,8 @@ background-color:white;
 						alt="" /></a>
 					<header>
 						<h3>
-								<input src = 'images/addgray.png' class="gray" type = "image" border="0" name = "add" >	
+							<input src='images/addgray.png' class="gray" type="image"
+								border="0" name="add">
 						</h3>
 					</header>
 					<p>Commodo id natoque malesuada sollicitudin elit suscipit
@@ -356,7 +372,8 @@ background-color:white;
 						alt="" /></a>
 					<header>
 						<h3>
-								<input src = 'images/addgray.png' class="gray" type = "image" border="0" name = "add" >	
+							<input src='images/addgray.png' class="gray" type="image"
+								border="0" name="add">
 						</h3>
 					</header>
 					<p>Commodo id natoque malesuada sollicitudin elit suscipit
@@ -368,14 +385,15 @@ background-color:white;
 						alt="" /></a>
 					<header>
 						<h3>
-							<input src = 'images/addgray.png' class="gray" type = "image" border="0" name = "add" >	
+							<input src='images/addgray.png' class="gray" type="image"
+								border="0" name="add">
 						</h3>
 					</header>
 					<p>Commodo id natoque malesuada sollicitudin elit suscipit
 						magna.</p>
 				</article>
 
-<!-- 				<script>
+				<!-- 				<script>
 					var gray = document.querySelector('.gray');
 					var sj = document.querySeletor('.sj');
 					
@@ -389,9 +407,9 @@ background-color:white;
 					};
 					
 				</script> -->
-				
-				
-<!-- 				<script>
+
+
+				<!-- 				<script>
 				$('.gray').on('click', function() {
 					var red = 251;
 					var blue = 190;
@@ -641,7 +659,7 @@ background-color:white;
 
 	<script>
 		$('#inputt').on('keyup', checkMusic);
-		var ff=[];
+		var ff = [];
 		var li;
 		var liSelected;
 		function checkMusic(e) {
@@ -746,7 +764,6 @@ background-color:white;
 	</script>
 
 	<script>
-	
 		$('#search').on('click', function() {
 			var title = $('#inputt').val();
 			console.log(title + "테스트");
@@ -764,7 +781,7 @@ background-color:white;
 		});
 	</script>
 
-<!-- 	<script>
+	<!-- 	<script>
 		$('.sj').on('click', function() {
 			var l = $('.listt').text();
 
@@ -780,108 +797,105 @@ background-color:white;
 		})
 	</script> -->
 
-		<script>
+	<script>
 		var musiclist = [];
 		var a = null;
 		var b = null;
 		var m = [];
-				$('.gray').on('click', function() {
-					/* 	$('.sj').css("background-color","#FBC7BE") */							
-										
-        					 b = ($(this).parent().parent().parent().css('background-color'));
-         				
-        					 if(b == "rgb(251, 199, 191)"){
-        						 $(this).parent().parent().parent().css("background-color","rgb(255, 255, 255)")
-        						 a = $(this).parent().parent().next().text();
-        						 var f = musiclist.indexOf(a);
-        						 musiclist.splice(f,1);
-        					 }else{
-        						 $(this).parent().parent().parent().css("background-color","rgb(251, 199, 191)")
-        						  a = $(this).parent().parent().next().text();
-        						 musiclist.push(a);
-        					 }
-    						console.log(musiclist[0]);
-        						console.log(musiclist[1]);
-        						console.log(musiclist[2]);
-        				for(var i; i<musiclist.length;i++){
-        					m = musiclist[i];
-        					console.log(m);
-        				}
-						
-				});
-				
-			
-				</script>
-				
-				<script>
-      
-      //$('.sj').on('click',function(){
-         /* var list = $('#list5').text();         
-         console.log(list); */
-        // var a = $(this).children().next().next().text();
-         
-         /*쿠키를 이용해보자*/
-         
-        // console.log(a);
-         
-/*          $(this).text(
-               console.log(l)); */
-         
-               
-               
-         
-       //  ff.push(a);
-    //  })
-      
-      $('#cartt').on('click', function(){
-         
-         var idnum = <%=(Integer)session.getAttribute("idnum")%>;
-         console.log(idnum);
+		$('.gray').on(
+				'click',
+				function() {
+					/* 	$('.sj').css("background-color","#FBC7BE") */
 
-         var click1 = $('.sj').children().children().children().text();
-         console.log(click1);
-         console.log(b)
-         
-         var e = ($(this).next().next().next().css('background-color'));
-        	
-         
-         if(e =="rgb(251, 199, 190)"){
-             var a = $('.gray').parent().parent().next().text(); 
-        	 console.log(a);
-         }else {
-        	 
-         }
-         console.log(musiclist[0]);
-         
-         for(var i in musiclist){
-        	 m.push(musiclist[i])
-         }
-         console.log(m);
-         
-     	$.ajax({
-			url : "bucket.do",
-			type : 'post',
-			/* dataType : "json", */
-			data : {'idnum' : idnum,'m' : m.join(",")},
-			success : function(result) {
-			alert("성공");
+					b = ($(this).parent().parent().parent()
+							.css('background-color'));
+
+					if (b == "rgb(251, 199, 191)") {
+						$(this).parent().parent().parent().css(
+								"background-color", "rgb(255, 255, 255)")
+						a = $(this).parent().parent().next().text();
+						var f = musiclist.indexOf(a);
+						musiclist.splice(f, 1);
+					} else {
+						$(this).parent().parent().parent().css(
+								"background-color", "rgb(251, 199, 191)")
+						a = $(this).parent().parent().next().text();
+						musiclist.push(a);
+					}
+					console.log(musiclist[0]);
+					console.log(musiclist[1]);
+					console.log(musiclist[2]);
+					for (var i; i < musiclist.length; i++) {
+						m = musiclist[i];
+						console.log(m);
+					}
+
+				});
+	</script>
+
+	<script>
+		//$('.sj').on('click',function(){
+		/* var list = $('#list5').text();         
+		console.log(list); */
+		// var a = $(this).children().next().next().text();
+		/*쿠키를 이용해보자*/
+
+		// console.log(a);
+		/*          $(this).text(
+		 console.log(l)); */
+
+		//  ff.push(a);
+		//  })
+		$('#cartt').on('click', function() {
+
+			var idnum =
+	<%=(Integer) session.getAttribute("idnum")%>
+		;
+			console.log(idnum);
+
+			var click1 = $('.sj').children().children().children().text();
+			console.log(click1);
+			console.log(b)
+
+			var e = ($(this).next().next().next().css('background-color'));
+
+			if (e == "rgb(251, 199, 190)") {
+				var a = $('.gray').parent().parent().next().text();
+				console.log(a);
+			} else {
+
 			}
-            
-		})
+			console.log(musiclist[0]);
+
+			for ( var i in musiclist) {
+				m.push(musiclist[i])
+			}
+			console.log(m);
+
+			$.ajax({
+				url : "bucket.do",
+				type : 'post',
+				/* dataType : "json", */
+				data : {
+					'idnum' : idnum,
+					'm' : m.join(",")
+				},
+				success : function(result) {
+					alert("성공");
+				}
+
+			})
+
+			m = [];
+
+		});
+
+		/*   $('#mylist').on('click', function(){
+			  
 		
-		m = [];
-         
-        
-      });
-      
-    /*   $('#mylist').on('click', function(){
-    	  
-    
-    	  
-      }); */
-      
-      
-   </script>
+			  
+		  }); */
+	</script>
 
 </body>
 </html>
