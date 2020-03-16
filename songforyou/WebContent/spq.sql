@@ -39,7 +39,7 @@ CREATE TABLE "HR"."SONGTITLE"
 INSERT INTO songtitle VALUES (1,'아무노래','f','지코','images/amu.jfif');
 INSERT INTO songtitle VALUES (2,'아무데나','f','지코','images/amu.jfif');
 INSERT INTO songtitle VALUES (3,'아무지개','f','지코','images/amu.jfif');
->>>>>>> branch 'master' of https://github.com/2019-SMHRD-Deep3/SongForYou.git
+
 
 
 insert into songbucket select t.songid, s.idnum from songmember s, songtitle t
