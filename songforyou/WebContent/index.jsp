@@ -1,3 +1,4 @@
+<%@page import="model.MusicDAO"%>
 <%@page import="model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
@@ -18,6 +19,9 @@
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
 <style>
+/* .listwidth{
+width : 20%;
+} */
 .scale {
 	transform: scale(1);
 	-webkit-transform: scale(1);
@@ -74,7 +78,7 @@ form {
 	margin-left: 200px;
 	padding: 5px;
 	list-style: none;
-	padding-left: 10em;
+	padding-left: 0em;
 
 }
 
@@ -125,6 +129,12 @@ form {
 	/* margin-right:350px; */
 	margin-left:200px;
 }
+.song_img{
+align:left;
+}
+
+
+
 </style>
 </head>
 <body class="homepage is-preload">
@@ -259,13 +269,14 @@ form {
 		%>
 		<!-- Carousel -->
 		<section class="carousel">
-
+		<% 
+		MusicDAO dao = new MusicDAO();
+		dao.song(); %>
 			<div class="reel">
 				<button align="center" type="button" class="cart" id="cartt">
 					<img src="images/record.png" width="30px" height="30px">
 				</button>
 				<br> <br>
-
 
 				<article class="sj">
 					<a href="#" class="image featured"> <img src="images/pic01.jpg"
@@ -730,11 +741,14 @@ form {
 										$('#table')
 												.append(
 														/* 							"<tr class = 'ss'><td><ul><li class = scale>가수 : "+result[i].singer+" 제목 : "+result[i].title+"</li></ul><td><td></td></tr>"); */
-														"<ul class = 'ss'><li class = 'singer' align = 'left'>"
+												
+														"<ul class = 'ss'><table><tr><td width=20%><li class = 'song_img' align = 'left'><img src ="
+																+ result[i].img
+																+ "></li></td><span><td align = left><li class = 'singer' align = 'left' height=100px>"
 																+ result[i].singer
-																+ "</li><span><li class = 'listCheck' align = 'left'>"
+																+ "</li></td><span><td><li class = 'listCheck' align = 'left'>"
 																+ result[i].title
-																+ "</li></ul>");
+																+ "</li></td></tr></ul>");
 
 									}
 
@@ -802,9 +816,7 @@ form {
 		var a = null;
 		var b = null;
 		var m = [];
-		$('.gray').on(
-				'click',
-				function() {
+		$('.gray').on('click',function() {
 					/* 	$('.sj').css("background-color","#FBC7BE") */
 
 					b = ($(this).parent().parent().parent()
@@ -853,7 +865,7 @@ form {
 
 			var click1 = $('.sj').children().children().children().text();
 			console.log(click1);
-			console.log(b)
+			console.log(b);
 
 			var e = ($(this).next().next().next().css('background-color'));
 
@@ -888,11 +900,6 @@ form {
 
 		});
 
-		/*   $('#mylist').on('click', function(){
-			  
-		
-			  
-		  }); */
 	</script>
 
 </body>

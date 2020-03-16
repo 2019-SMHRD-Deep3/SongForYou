@@ -137,10 +137,20 @@ modal-table{
  	})
  	
   	$('.bin').on('click',function(){
- 		$.ajax({
- 			url : ""
- 		})
- 	})
+  		var data = [];
+  		
+  		if($('input[name=select]:checked')){
+  			data.push($('input[name=select]:checked').parent().next().next().text());
+  		}
+  		console.log(data);
+		$.ajax({
+ 			url : "MylistService.do",
+ 			type : 'post',
+ 			data:{'data' : data}
+		
+		}) 
+		data = [];
+ 	});
 
       </script>
 </body>

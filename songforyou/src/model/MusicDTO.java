@@ -30,6 +30,11 @@ public class MusicDTO {
 	}
 
 
+	public MusicDTO() {
+	}
+
+
+
 	public int getNum() {
 		return num;
 	}

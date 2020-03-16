@@ -154,6 +154,17 @@ public class MusicBucketDAO {
 
 		return list;
 	}
+	
+	/*
+	 * public void delete() {
+	 * 
+	 * try { getConnection(); String sql =
+	 * "delete from songbucket where songid = ?"; psmt = conn.prepareStatement(sql);
+	 * psmt.setString(1, ); psmt.executeUpdate(); } catch (SQLException e) {
+	 * e.printStackTrace(); } finally { close(); }
+	 * 
+	 * }
+	 */
 
 	/*
 	 * public MusicDTO mylist(MusicBucketDTO dto) { MusicDTO music = null;
