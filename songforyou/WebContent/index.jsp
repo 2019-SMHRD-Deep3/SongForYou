@@ -1,3 +1,4 @@
+<%@page import="model.MusicDTO"%>
 <%@page import="model.MusicDAO"%>
 <%@page import="model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -46,13 +47,13 @@ width : 20%;
 
 #search {
 	background-color: #FFC6B3 !important;
-	margin-right:500px;
-	margin-left:20px;
-	width:50px;
-/* flex추가  */	
+	margin-right: 500px;
+	margin-left: 20px;
+	width: 50px;
+	/* flex추가  */
 	display: flex;
-    align-items: center;
-    justify-content: center;
+	align-items: center;
+	justify-content: center;
 }
 
 p {
@@ -79,26 +80,27 @@ form {
 	padding: 5px;
 	list-style: none;
 	padding-left: 0em;
-
 }
 
-.singer {
-	color:#E8847B;
-	font-size: 25px;
-	font-weight: bold
-}
+
 
 .background {
 	background-color: #EAEAEA !important;
 	margin: 2px;
 	padding: 5px;
 	list-style: none;
-	padding-left: 10em;
-	margin-left:200px;
+	padding-left: 0em;
+	margin-left: 200px;
 }
 
 .sj:hover {
 	background-color: #FBC7BE;
+}
+
+.sj{
+width :300px !important;
+height:500px;
+
 }
 
 .cart {
@@ -127,12 +129,42 @@ form {
 #inputt {
 	width: 800px;
 	/* margin-right:350px; */
-	margin-left:200px;
-}
-.song_img{
-align:left;
+	margin-left: 200px;
 }
 
+#song_info {
+width:200px;
+height:200px;
+align:center!important;
+displaty:block;
+margin-left:50px;
+margin-right:50px;
+margin-top:50px;
+
+}
+.clcl{
+  width: 10px;
+  height: 10px;
+  
+}
+.song_img {
+	align: left;
+    width: 10px;
+    height: 10px;
+}
+
+.singer {
+	color: #E8847B;
+	font-size: 25px;
+	font-weight: bold;
+
+}
+
+.listCheck{
+	font-size: 20px;
+	font-weight: bold;
+
+}
 
 
 </style>
@@ -201,9 +233,9 @@ align:left;
 						<li class=scale><a id='mylist' href="myListPage.jsp">Mylist</a></li>
 						<li class=scale><a href="mypage.jsp">Updateinfo</a></li>
 					</ul></li>
-				<li class=scale><a href="Service">Service</a> <li class=scale>
-			<a
-					href="LogoutService">Logout</a></li></ul>
+				<li class=scale><a href="Service">Service</a>
+				<li class=scale><a href="LogoutService">Logout</a></li>
+			</ul>
 		</nav>
 		<!-- Banner -->
 		<section id="banner">
@@ -220,7 +252,7 @@ align:left;
 						<tr>
 							<td align=right><input id=inputt type=text
 								placeholder="노래를 입력해 주세요." autocomplete=off></td>
-							<td align=left><input id=search type="button" value=검색 ></td>
+							<td align=left><input id=search type="button" value=검색></td>
 						</tr>
 
 					</table>
@@ -244,178 +276,38 @@ align:left;
 		%>
 		<!-- Carousel -->
 		<section class="carousel">
-		<% 
-		MusicDAO dao = new MusicDAO();
-		dao.song(); %>
+			<%
+				MusicDAO dao = new MusicDAO();
+			%>
 			<div class="reel">
 				<button align="center" type="button" class="cart" id="cartt">
 					<img src="images/record.png" width="30px" height="30px">
 				</button>
 				<br> <br>
-
+				<%
+					for (int i = 0; i < dao.song().size(); i++) {
+				%>
 				<article class="sj">
-					<a href="#" class="image featured"> <img src="images/pic01.jpg"
-						alt="" /></a>
+					<a href="#" class="image featured" id="song_info"> <img
+						src=<%= dao.song().get(i).getimg()%> alt=""></a>
 					<header>
 						<h3>
 							<input src='images/addgray.png' class="gray" type="image"
-								border="0" name="add">
+								border="0" name="add">	
 						</h3>
 					</header>
-					<p>아무노래</p>
+					<p><%= dao.song().get(i).gettitle()%>
+					<br>
+					<h1 style="color: #E8847B; font-weight: bold; margin-top:10px;"><%= dao.song().get(i).getSinger()%></h1>
+					</p>
+
 				</article>
-
-				<article class="sj">
-					<a href="#" class="image featured"><img src="images/pic02.jpg"
-						alt="" /></a>
-					<header>
-						<h3>
-							<input src='images/addgray.png' class="gray" type="image"
-								border="0" name="add">
-						</h3>
-					</header>
-					<p>아무데나</p>
-				</article>
-
-				<article class="sj">
-					<a href="#" class="image featured"><img src="images/pic03.jpg"
-						alt="" /></a>
-					<header>
-						<h3>
-							<input src='images/addgray.png' class="gray" type="image"
-								border="0" name="add">
-						</h3>
-					</header>
-					<p>아무지개</p>
-				</article>
-
-				<article class="sj">
-					<a href="#" class="image featured"><img src="images/pic04.jpg"
-						alt="" /></a>
-					<header>
-						<h3>
-							<input src='images/addgray.png' class="gray" type="image"
-								border="0" name="add">
-						</h3>
-					</header>
-					<p>4</p>
-				</article>
-
-				<article class="sj">
-					<a href="#" class="image featured"><img src="images/pic05.jpg"
-						alt="" /></a>
-					<header>
-						<h3>
-							<input src='images/addgray.png' class="gray" type="image"
-								border="0" name="add">
-						</h3>
-					</header>
-					<p>Commodo id natoque malesuada sollicitudin elit suscipit
-						magna.</p>
-				</article>
-
-				<article class="sj">
-					<a href="#" class="image featured"><img src="images/pic01.jpg"
-						alt="" /></a>
-					<header>
-						<h3>
-							<input src='images/addgray.png' class="gray" type="image"
-								border="0" name="add">
-						</h3>
-					</header>
-					<p>Commodo id natoque malesuada sollicitudin elit suscipit
-						magna.</p>
-				</article>
-
-				<article class="sj">
-					<a href="#" class="image featured"><img src="images/pic02.jpg"
-						alt="" /></a>
-					<header>
-						<h3>
-							<input src='images/addgray.png' class="gray" type="image"
-								border="0" name="add">
-						</h3>
-					</header>
-					<p>Commodo id natoque malesuada sollicitudin elit suscipit
-						magna.</p>
-				</article>
-
-				<article class="sj">
-					<a href="#" class="image featured"><img src="images/pic03.jpg"
-						alt="" /></a>
-					<header>
-						<h3>
-							<input src='images/addgray.png' class="gray" type="image"
-								border="0" name="add">
-						</h3>
-					</header>
-					<p>Commodo id natoque malesuada sollicitudin elit suscipit
-						magna.</p>
-				</article>
-
-				<article class="sj">
-					<a href="#" class="image featured"><img src="images/pic04.jpg"
-						alt="" /></a>
-					<header>
-						<h3>
-							<input src='images/addgray.png' class="gray" type="image"
-								border="0" name="add">
-						</h3>
-					</header>
-					<p>Commodo id natoque malesuada sollicitudin elit suscipit
-						magna.</p>
-				</article>
-
-				<article class="sj">
-					<a href="#" class="image featured"><img src="images/pic05.jpg"
-						alt="" /></a>
-					<header>
-						<h3>
-							<input src='images/addgray.png' class="gray" type="image"
-								border="0" name="add">
-						</h3>
-					</header>
-					<p>Commodo id natoque malesuada sollicitudin elit suscipit
-						magna.</p>
-				</article>
-
-				<!-- 				<script>
-					var gray = document.querySelector('.gray');
-					var sj = document.querySeletor('.sj');
-					
-					gray.onclick = function() {
-						/* Math.floor(Math.random() * 256); */
-						var red = 251;
-						var blue = 190;
-						var green = 199;
-
-						sj.style.backgroundColor = "rgb(" + red + "," + green+ "," + blue + ")";
-					};
-					
-				</script> -->
-
-
-				<!-- 				<script>
-				$('.gray').on('click', function() {
-					var red = 251;
-					var blue = 190;
-					var green = 199;
-					var sj = $('.sj');
-					sj.style.backgroundColor = "rgb(" + red + "," + green+ "," + blue + ")";
-					
-					$.ajax({
-						url : "myListPage.jsp",
-						type : 'post',
-						dataType : "json",
-						data : {},
-						success : function(result) {
-						
-
-						}
-					})
-				})
+				<%
+					}
+				%>
 				
-				</script> -->
+
+
 			</div>
 		</section>
 
@@ -716,14 +608,14 @@ align:left;
 										$('#table')
 												.append(
 														/* 							"<tr class = 'ss'><td><ul><li class = scale>가수 : "+result[i].singer+" 제목 : "+result[i].title+"</li></ul><td><td></td></tr>"); */
-												
-														"<ul class = 'ss'><table><tr><td width=20%><li class = 'song_img' align = 'left'><img src ="
+
+														"<ul class = 'ss'><li class='lili'><div class = 'clcl'><img src ="
 																+ result[i].img
-																+ "></li></td><span><td align = left><li class = 'singer' align = 'left' height=100px>"
+																+ " width=80px height=80px></div><span class = 'singer'  >"
 																+ result[i].singer
-																+ "</li></td><span><td><li class = 'listCheck' align = 'left'>"
+																+ "</span><span class = 'listCheck' ><br>"
 																+ result[i].title
-																+ "</li></td></tr></ul>");
+																+ "</span></li></ul>");
 
 									}
 
@@ -746,7 +638,7 @@ align:left;
 
 			//replaceAll 사용
 
-			text = text.replaceAll("<br>", " - ");
+			text = text.replaceAll("<br>", "");
 
 			$('#inputt').val(text);
 		}
