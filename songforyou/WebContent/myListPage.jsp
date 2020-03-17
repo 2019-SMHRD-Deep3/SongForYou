@@ -43,23 +43,11 @@ p {
 form {
    margin-left: 300px;
 }
-
-/* .ss {
-   background: whitesmoke;
-   margin: 2px;
-   padding: 5px;
-   list-style: none;
-   padding-left: 10em;
+.bin {
+	position : absolut !important;
+	background-color : white !important;
 }
- */
 
-/* .background {
-   background-color: gray !important;
-   margin: 2px;
-   padding: 5px;
-   list-style: none;
-   padding-left: 10em;
-} */
 table {
     width: 100%;
     border-top: 1px solid #444444;
@@ -77,7 +65,14 @@ body{
 	
 input{
 	-webkit-appearance: meter;
+	
 }
+modal-table{
+	display:table;
+	position:relative;
+	width:100%;
+	height:200px;
+	}
 </style>
 </head>
 <body>
@@ -92,46 +87,84 @@ input{
          <section id="features" class="container special">
             <header>
             
-               <h2><%=info.getName() %>님의 MUSIC LIST</h2><br><br><br>
+               <h2><%=info.getName() %>님의 MUSIC LIST</h2><br><br>
 
             </header>
             <div class="row">
 
-
+			<button type="button" class="bin">
+				<img src="images/trash.png" width=50px height=50px>
+			</button><br><br>
 			<table class = "track">
-<!-- 				<colgroup>
-					<col width="42" data-cell="체크박스">
-					<col width="*" data-cell="곡/앨범">
-					<col width="250" data-cell="아티스트">
-					<col width="65" data-cell="듣기">
-				</colgroup> -->
 				<thead>
-				<tr>
+				<tr bgcolor=#f0f4f4>
 					<th scope="col">
-						<input type="checkbox" name="selectAll" id="detailAllselect" value="true">
-				 	<label for="detailAllselect">
-							<span class="hidden"></span>
-						</label>
+						<input type="checkbox" id="Allselect">
 					</th>
 					<th scope="col" class="info" colspan=2>곡/앨범</th>
 					<th scope="col" class="artist">아티스트</th>
 					<th scope="col">듣기</th>
 				</tr></thead>
-				<tbody>
-					<%for(int i = 0; i<dao.alltitle(dao.songid(info.getIdnum())).size();i++){ %>
-					<tr>
-						<td><input type="checkbox" name="select"></td>
-						<td align=right><img src = <%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getimg()%> width=50 height=50></td>
-						<td align=left><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).gettitle()%></td>
-						<td><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getSinger()%></td>			
-						<td></td>			
-					</tr><%} %>
-				</tbody>		
+			   <tbody>
+            <%try{
+               if (dao.alltitle(dao.songid(info.getIdnum())).isEmpty()){
+               %>
+               <div>
+               
+               </div>
+               
+               <% }
+               else{for(int i = 0; i<dao.alltitle(dao.songid(info.getIdnum())).size();i++){ %>
+               <tr>
+                  <td><input type="checkbox" name="select"></td>
+                  <td align=right><img src = <%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getimg()%> width=50 height=50></td>
+                  <td align=left><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).gettitle()%></td>
+                  <td><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getSinger()%></td>         
+                  <td></td>         
+               </tr><%}}}catch(IndexOutOfBoundsException e){
+                  e.printStackTrace();
+                  %>
+                  <div><table><tr><td>자료가 없습니다. 노래를 추가해주세요!</td></tr></table></div>
+                  <%} %>
+               
+            </tbody>   		
 			</table>
             </div>
          </section>
+      </div>      
+    <script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+      <script>
+     	$("#Allselect").on('click',function(){
+ 		if($("#Allselect").prop("checked")){
+ 			$(".selectt").prop("checked",true);
+ 		}else{
+ 			$(".selectt").prop("checked",false);
+ 		}
+ 	})
+ 	
+  /*	$('.bin').on('click',function(){
+  		var data = [];
+  		
+  		if($('input[name=select]:checked')){
+  			data.push($('input[name=select]:checked').parent().next().next().text());
+  		}
+  		console.log(data);
+		$.ajax({
+ 			url : "MylistService.do",
+ 			type : 'post',
+ 			data:{'data' : data}
+		
+		}) 
+		data = [];
+ 	}); */
 
-      </div>
-
+      </script>
 </body>
 </html>

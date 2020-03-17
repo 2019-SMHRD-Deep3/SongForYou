@@ -10,14 +10,20 @@ import javax.servlet.http.HttpSession;
 
 import model.MemberDAO;
 import model.MemberDTO;
+import model.MusicDAO;
+import model.MusicDTO;
 
-@WebServlet("/MylistService")
+@WebServlet("/MylistService.do")
 public class MylistService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberDTO memberdto = new MemberDTO();
 		MemberDAO memberdao = new MemberDAO();
 		MemberDTO info = memberdao.login(memberdto);
+		MusicDTO musicdto = new MusicDTO();
+		MusicDAO musicdao = new MusicDAO();
+		
+		String data = request.getParameter("data");
 		
 		if(info!=null) {
 			HttpSession session = request.getSession();
@@ -27,6 +33,8 @@ public class MylistService extends HttpServlet {
 		}else {
 			response.sendRedirect("loginpage.jsp");
 		}
+		
+		
 	}
 
 }

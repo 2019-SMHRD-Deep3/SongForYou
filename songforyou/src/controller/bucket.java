@@ -29,11 +29,6 @@ public class bucket extends HttpServlet {
 		
 		MusicBucketDAO dao = new MusicBucketDAO();
 		
-		
-		System.out.println(idnum);
-		
-		System.out.println(m);
-		
 		int len = m.length();
 		
 		String[] value = m.split(",");

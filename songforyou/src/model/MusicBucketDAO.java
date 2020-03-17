@@ -57,16 +57,17 @@ public class MusicBucketDAO {
 	public int bucketlist(int idnum, String titlename) {
 
 		int cnt = 0;
-
+		
+		System.out.println(idnum);
+		System.out.println(titlename);
+		
 		try {
 			getConnection();
 
-			String sql = "insert into songbucket select t.songid, s.idnum " + "from songmember s, songtitle t\n"
-					+ "where s.idnum=? and t.title=?";
-
+			String sql = "insert into songbucket values (bucketid_seq.nextval, (select songid from songtitle where title=?),(select idnum from songmember where idnum=?))";
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, idnum);
-			psmt.setString(2, titlename);
+			psmt.setString(1, titlename);
+			psmt.setInt(2, idnum);
 			cnt = psmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -86,18 +87,20 @@ public class MusicBucketDAO {
 
 		int l_songid = 0;
 		int l_idnum = f;
+		int l_bucketid = 0;
 
 		try {
 			getConnection();
-			String sql = "select songid from songbucket where idnum= ?";
+			String sql = "select bucketid, songid from songbucket where idnum= ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, f);
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				l_songid = rs.getInt(1);
+				l_bucketid = rs.getInt(1);
+				l_songid = rs.getInt(2);
 
-				dto = new MusicBucketDTO(l_songid, l_idnum);
+				dto = new MusicBucketDTO(l_bucketid, l_songid, l_idnum);
 				songid.add(dto);
 
 			}
@@ -106,6 +109,10 @@ public class MusicBucketDAO {
 		} finally {
 			close();
 		}
+		
+		System.out.println(l_bucketid+"fff");
+		System.out.println(l_songid+"hi");
+	
 
 		/*
 		 * System.out.println(songid.get(0).getSongid());
@@ -118,7 +125,7 @@ public class MusicBucketDAO {
 
 	public ArrayList<MusicDTO> alltitle(ArrayList<MusicBucketDTO> songid) {
 
-		System.out.println(songid.get(0).getSongid());
+		/* System.out.println(songid.get(0).getSongid()); */
 
 		ArrayList<MusicDTO> list = new ArrayList<MusicDTO>();
 		MusicDTO dto = null;
@@ -154,6 +161,17 @@ public class MusicBucketDAO {
 
 		return list;
 	}
+	
+	/*
+	 * public void delete() {
+	 * 
+	 * try { getConnection(); String sql =
+	 * "delete from songbucket where songid = ?"; psmt = conn.prepareStatement(sql);
+	 * psmt.setString(1, ); psmt.executeUpdate(); } catch (SQLException e) {
+	 * e.printStackTrace(); } finally { close(); }
+	 * 
+	 * }
+	 */
 
 	/*
 	 * public MusicDTO mylist(MusicBucketDTO dto) { MusicDTO music = null;

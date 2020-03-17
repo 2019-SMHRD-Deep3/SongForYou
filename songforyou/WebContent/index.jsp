@@ -708,9 +708,7 @@ margin-top:50px;
 		var a = null;
 		var b = null;
 		var m = [];
-		$('.gray').on(
-				'click',
-				function() {
+		$('.gray').on('click',function() {
 					/* 	$('.sj').css("background-color","#FBC7BE") */
 
 					b = ($(this).parent().parent().parent()
@@ -754,14 +752,12 @@ margin-top:50px;
 		//  })
 		$('#cartt').on('click', function() {
 
-			var idnum =
-	<%=(Integer) session.getAttribute("idnum")%>
-		;
+			var idnum = <%=(Integer) session.getAttribute("idnum")%>;
 			console.log(idnum);
 
 			var click1 = $('.sj').children().children().children().text();
 			console.log(click1);
-			console.log(b)
+			console.log(b);
 
 			var e = ($(this).next().next().next().css('background-color'));
 
@@ -796,11 +792,6 @@ margin-top:50px;
 
 		});
 
-		/*   $('#mylist').on('click', function(){
-			  
-		
-			  
-		  }); */
 	</script>
 
 </body>
