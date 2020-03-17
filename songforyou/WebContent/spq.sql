@@ -25,15 +25,6 @@ CREATE TABLE "HR"."SONGTITLE"
    "IMG" VARCHAR2(50 BYTE) NOT NULL ENABLE, 
     CONSTRAINT "SONGTITLE_PK" PRIMARY KEY ("SONGID"))
   
-     CREATE TABLE "HR"."SONGBUCKET" 
-   (   "SONGID" NUMBER NOT NULL ENABLE, 
-   "IDNUM" NUMBER NOT NULL ENABLE, 
-    CONSTRAINT "SONGBUCKET_PK" PRIMARY KEY ("SONGID"),
-    CONSTRAINT "SONGBUCKET_FK1" FOREIGN KEY ("SONGID")
-     REFERENCES "HR"."SONGTITLE" ("SONGID") ENABLE, 
-    CONSTRAINT "SONGBUCKET_FK2" FOREIGN KEY ("IDNUM")
-     REFERENCES "HR"."SONGMEMBER" ("IDNUM") ENABLE
-   ) 
    
      CREATE TABLE "HR"."SONGBUCKET" 
    ("BUCKETID" NUMBER NOT NULL ENABLE,
@@ -51,7 +42,7 @@ CREATE TABLE "HR"."SONGTITLE"
    )
    
 
-
+insert into songbucket values(bucketid_seq.nextval,1,21);
 INSERT INTO songtitle VALUES (1,'마음을 드려요','f','아이유','images/0.jpg');
 INSERT INTO songtitle VALUES (2,'아무노래','f','V','images/1.jpg');
 INSERT INTO songtitle VALUES (3,'그때 그 아인','f','김필','images/2.jpg');
@@ -63,7 +54,7 @@ INSERT INTO songtitle VALUES (8,'문득','f','노을','images/7.jpg');
 INSERT INTO songtitle VALUES (9,'어떻게 이별까지 사랑하겠어','f','AKMU(악동뮤지션)','images/8.jpg');
 INSERT INTO songtitle VALUES (10,'너를 사랑하고 있어','f','백현(BAEKHYUN)','images/9.jpg');
 
-
+insert into songbucket values (bucketid_seq.nextval, (select songid from songtitle where title='마음을 드려요'),(select idnum from songmember where idnum=21))
 insert into songbucket values( bucketid_seq.nextval, (select songid from songtitle where title=?),(select idnum from songmember where idnum=?))
 insert into songbucket select t.songid, s.idnum from songmember s, songtitle t
 where s.id= 1 and t.title='아무데나'
