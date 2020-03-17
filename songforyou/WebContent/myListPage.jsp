@@ -105,16 +105,29 @@ modal-table{
 					<th scope="col" class="artist">아티스트</th>
 					<th scope="col">듣기</th>
 				</tr></thead>
-				<tbody>
-					<%for(int i = 0; i<dao.alltitle(dao.songid(info.getIdnum())).size();i++){ %>
-					<tr>
-						<td><input type="checkbox" name="select" class="selectt"></td>
-						<td align=right><img src = <%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getimg()%> width=50 height=50></td>
-						<td align=left><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).gettitle()%></td>
-						<td><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getSinger()%></td>			
-						<td></td>			
-					</tr><%} %>
-				</tbody>		
+			   <tbody>
+            <%try{
+               if (dao.alltitle(dao.songid(info.getIdnum())).isEmpty()){
+               %>
+               <div>
+               
+               </div>
+               
+               <% }
+               else{for(int i = 0; i<dao.alltitle(dao.songid(info.getIdnum())).size();i++){ %>
+               <tr>
+                  <td><input type="checkbox" name="select"></td>
+                  <td align=right><img src = <%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getimg()%> width=50 height=50></td>
+                  <td align=left><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).gettitle()%></td>
+                  <td><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getSinger()%></td>         
+                  <td></td>         
+               </tr><%}}}catch(IndexOutOfBoundsException e){
+                  e.printStackTrace();
+                  %>
+                  <div><table><tr><td>자료가 없습니다. 노래를 추가해주세요!</td></tr></table></div>
+                  <%} %>
+               
+            </tbody>   		
 			</table>
             </div>
          </section>
@@ -128,7 +141,7 @@ modal-table{
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
       <script>
-    	$("#Allselect").on('click',function(){
+     	$("#Allselect").on('click',function(){
  		if($("#Allselect").prop("checked")){
  			$(".selectt").prop("checked",true);
  		}else{
@@ -136,7 +149,7 @@ modal-table{
  		}
  	})
  	
-  	$('.bin').on('click',function(){
+  /*	$('.bin').on('click',function(){
   		var data = [];
   		
   		if($('input[name=select]:checked')){
@@ -150,7 +163,7 @@ modal-table{
 		
 		}) 
 		data = [];
- 	});
+ 	}); */
 
       </script>
 </body>
