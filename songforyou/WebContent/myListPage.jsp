@@ -83,6 +83,18 @@ modal-table{
    	  MusicDTO dto = null; 
    %>
 <div class="wrapper style1">
+	<nav id="nav">
+			<ul>
+				<li class=scale><a href="index.jsp">Home</a></li>
+				<li class=scale><a href="#">Mypage</a>
+					<ul class=scale>
+						<li class=scale><a id='mylist' href="myListPage.jsp">Mylist</a></li>
+						<li class=scale><a href="mypage.jsp">Updateinfo</a></li>
+					</ul></li>
+				<li class=scale><a href="Service">Service</a> <li class=scale>
+			<a
+					href="LogoutService">Logout</a></li></ul>
+		</nav>
 
          <section id="features" class="container special">
             <header>
@@ -149,7 +161,7 @@ modal-table{
  		}
  	})
  	
-  /*	$('.bin').on('click',function(){
+/* 	$('.bin').on('click',function(){
   		var data = [];
   		
   		if($('input[name=select]:checked')){
