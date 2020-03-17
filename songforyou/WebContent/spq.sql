@@ -45,7 +45,7 @@ INSERT INTO songtitle VALUES (6,'반만','f','진민호','images/5.jpg');
 INSERT INTO songtitle VALUES (7,'둘만의 세상으로 가','f','crush','images/6.jpg');
 INSERT INTO songtitle VALUES (8,'문득','f','노을','images/7.jpg');
 INSERT INTO songtitle VALUES (9,'어떻게 이별까지 사랑하겠어','f','AKMU(악동뮤지션)','images/8.jpg');
-INSERT INTO songtitle VALUES (10,'너릉 사랑하고 있어','f','백현(BAEKHYUN)','images/9.jpg');
+INSERT INTO songtitle VALUES (10,'너를 사랑하고 있어','f','백현(BAEKHYUN)','images/9.jpg');
 
 
 

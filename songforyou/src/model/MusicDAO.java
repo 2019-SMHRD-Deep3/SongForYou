@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MusicDAO {
-	
+
 	private PreparedStatement psmt;
 	private Connection conn;
 	private ResultSet rs;
@@ -48,30 +48,29 @@ public class MusicDAO {
 	}
 
 	public ArrayList<MusicDTO> MusicChk(String title) {
-	
+
 		ArrayList<MusicDTO> list = new ArrayList<MusicDTO>();
 		MusicDTO info = null;
-		
+
 		String l_singer = null;
 		String l_title = null;
 		String l_img = null;
-		
+
 		try {
 			getConnection();
-			
+
 			String sql = "select * from songtitle where title like '%'||?||'%'";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, title);
 			rs = psmt.executeQuery();
 
-			while(rs.next()) {
+			while (rs.next()) {
 				// rs.getString("id");
 				l_title = rs.getString(2);
 				l_singer = rs.getString(4);
 				l_img = rs.getString(5);
-			
-			
-				info = new MusicDTO(l_singer,l_title,l_img);  
+
+				info = new MusicDTO(l_singer, l_title, l_img);
 				list.add(info);
 			}
 
@@ -82,34 +81,43 @@ public class MusicDAO {
 			close();
 
 		}
-		
+
 		return list;
 	}
-	
-	public MusicDTO song() {
-		MusicDTO dto = null;
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		return null;
+
+	public ArrayList<MusicDTO> song() {
+		ArrayList<MusicDTO> list = new ArrayList<MusicDTO>();
+		MusicDTO song_info = null;
+
+		String l_singer = null;
+		String l_title = null;
+		String l_img = null;
+
+		try {
+
+			getConnection();
+			String sql = "select * from songtitle";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+				
+			while(rs.next()) {
+				l_title = rs.getString(2);
+				l_singer = rs.getString(4);
+				l_img = rs.getString(5);
+				
+				song_info = new MusicDTO(l_singer,l_title,l_img);
+				list.add(song_info);
+			}
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+
+		}
+
+		return list;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
