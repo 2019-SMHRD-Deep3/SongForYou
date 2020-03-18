@@ -160,10 +160,30 @@ form {
 	font-size: 20px;
 	font-weight: bold;
 }
+
 #mainsong {
 	width : 200px !important;
 	height : 200px !important;
 }
+
+
+/* .song_img {
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transition: all 0.3s ease-in-out;   /* 부드러운 모션을 위해 추가*/
+} */
+/* .song_img:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+} */
+/* .img {width:500px; height:600px; overflow:hidden }  */
+
 </style>
 </head>
 <body class="homepage is-preload">
@@ -276,17 +296,18 @@ form {
 					for (int i = 0; i < dao.song().size(); i++) {
 				%>
 				<article class="sj">
-					<a href="#" class="image featured" id="song_info"> <img
-						src=<%=dao.song().get(i).getimg()%> alt=""></a>
+					<a href="#" class="image featured" id="song_info"> 
+					<img src=<%= dao.song().get(i).getimg()%> alt="" 
+						></a>
 					<header>
 						<h3>
 							<input src='images/addgray.png' class="gray" type="image"
 								border="0" name="add">
 						</h3>
 					</header>
-					<p><%=dao.song().get(i).gettitle()%></p>
-					<p>
-					<h1 style="color: #E8847B; font-weight: bold; margin-top: 10px;"><%=dao.song().get(i).getSinger()%></h1>
+
+					<p><%= dao.song().get(i).gettitle()%></p>
+					<p><h1 style="color: #E8847B; font-weight: bold; margin-top:10px;"><%= dao.song().get(i).getSinger()%></h1>
 					</p>
 
 				</article>
