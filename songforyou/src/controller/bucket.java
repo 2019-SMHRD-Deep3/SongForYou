@@ -44,7 +44,6 @@ public class bucket extends HttpServlet {
 		  }
 		 
 		
-		
 		/*
 		 * Gson gson = new Gson(); String value = gson.toJson(list);
 		 * response.getWriter().print(value);

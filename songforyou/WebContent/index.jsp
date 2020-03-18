@@ -82,8 +82,6 @@ form {
 	padding-left: 0em;
 }
 
-
-
 .background {
 	background-color: #EAEAEA !important;
 	margin: 2px;
@@ -97,10 +95,9 @@ form {
 	background-color: #FBC7BE;
 }
 
-.sj{
-width :300px !important;
-height:500px;
-
+.sj {
+	width: 300px !important;
+	height: 500px;
 }
 
 .cart {
@@ -133,48 +130,46 @@ height:500px;
 }
 
 #song_info {
-width:200px;
-height:200px;
-align:center!important;
-displaty:block;
-margin-left:50px;
-margin-right:50px;
-margin-top:50px;
+	width: 200px;
+	height: 200px;
+	align: center !important;
+	displaty: block;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 50px;
+}
 
+.clcl {
+	width: 10px;
+	height: 10px;
 }
-.clcl{
-  width: 10px;
-  height: 10px;
-  
-}
+
 .song_img {
 	align: left;
-    width: 10px;
-    height: 10px;
+	width: 10px;
+	height: 10px;
 }
 
 .singer {
 	color: #E8847B;
 	font-size: 25px;
 	font-weight: bold;
-
 }
 
-.listCheck{
+.listCheck {
 	font-size: 20px;
 	font-weight: bold;
-
 }
-
-
+#mainsong {
+	width : 200px !important;
+	height : 200px !important;
+}
 </style>
 </head>
 <body class="homepage is-preload">
 	<%
 		MemberDTO info = (MemberDTO) session.getAttribute("info");
 	%>
-
-
 	<!-- Header -->
 	<div id="page-wrapper">
 		<%
@@ -191,14 +186,9 @@ margin-top:50px;
 						<a href="index.jsp" id="logo">쏭뽀유</a>
 					</h1>
 					<hr class=width>
-
-
 					<p>당신의 노래를 찾아보세요!</p>
 				</header>
-
 				<footer>
-
-
 					<table>
 						<tr>
 							<td><input type=button value=Login
@@ -208,15 +198,8 @@ margin-top:50px;
 								onClick="location.href='joinpage1.jsp'"></td>
 						</tr>
 					</table>
-
-
-
 				</footer>
-
-
-
 			</div>
-
 		</div>
 		<%
 			}
@@ -256,24 +239,28 @@ margin-top:50px;
 						</tr>
 
 					</table>
-
-
 				</form>
-
-
-
 			</header>
-
-
 		</section>
-
-
-
-
-
 		<%
 			}
 		%>
+		<!-- Main -->
+<!-- 		<div class="wrapper style2">
+			<article id="main" class="container special">
+				<a href="#" class="image featured">
+				<img src="images/0.jpg" alt=""  id="mainsong">
+				</a>
+				<header>
+					<a href="#">제목, 가수</a>
+				</header>
+				<p></p> -->
+				<!-- 				<footer>
+					<a href="#" class="button">Continue Reading</a>
+				</footer> -->
+			</article>
+
+		</div>
 		<!-- Carousel -->
 		<section class="carousel">
 			<%
@@ -283,70 +270,31 @@ margin-top:50px;
 				<button align="center" type="button" class="cart" id="cartt">
 					<img src="images/record.png" width="30px" height="30px">
 				</button>
+
 				<br> <br>
 				<%
 					for (int i = 0; i < dao.song().size(); i++) {
 				%>
 				<article class="sj">
 					<a href="#" class="image featured" id="song_info"> <img
-						src=<%= dao.song().get(i).getimg()%> alt=""></a>
+						src=<%=dao.song().get(i).getimg()%> alt=""></a>
 					<header>
 						<h3>
 							<input src='images/addgray.png' class="gray" type="image"
-								border="0" name="add">	
+								border="0" name="add">
 						</h3>
 					</header>
-					<p><%= dao.song().get(i).gettitle()%>
-					<br>
-					<h1 style="color: #E8847B; font-weight: bold; margin-top:10px;"><%= dao.song().get(i).getSinger()%></h1>
+					<p><%=dao.song().get(i).gettitle()%></p>
+					<p>
+					<h1 style="color: #E8847B; font-weight: bold; margin-top: 10px;"><%=dao.song().get(i).getSinger()%></h1>
 					</p>
 
 				</article>
 				<%
 					}
 				%>
-				
-
-
 			</div>
 		</section>
-
-		<!-- Main -->
-		<div class="wrapper style2">
-
-			<article id="main" class="container special">
-				<a href="#" class="image featured"><img src="images/pic06.jpg"
-					alt="" /></a>
-				<header>
-					<h2>
-						<a href="#">Sed massa imperdiet magnis</a>
-					</h2>
-					<p>Sociis aenean eu aenean mollis mollis facilisis primis
-						ornare penatibus aenean. Cursus ac enim pulvinar curabitur morbi
-						convallis. Lectus malesuada sed fermentum dolore amet.</p>
-				</header>
-				<p>Commodo id natoque malesuada sollicitudin elit suscipit.
-					Curae suspendisse mauris posuere accumsan massa posuere lacus
-					convallis tellus interdum. Amet nullam fringilla nibh nulla
-					convallis ut venenatis purus sit arcu sociis. Nunc fermentum
-					adipiscing tempor cursus nascetur adipiscing adipiscing. Primis
-					aliquam mus lacinia lobortis phasellus suscipit. Fermentum lobortis
-					non tristique ante proin sociis accumsan lobortis. Auctor etiam
-					porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl
-					fermentum consequat integer interdum integer purus sapien. Nibh
-					eleifend nulla nascetur pharetra commodo mi augue interdum tellus.
-					Ornare cursus augue feugiat sodales velit lorem. Semper elementum
-					ullamcorper lacinia natoque aenean scelerisque.</p>
-				<footer>
-					<a href="#" class="button">Continue Reading</a>
-				</footer>
-			</article>
-
-		</div>
-
-		<!-- Features -->
-
-
 		<!-- Footer -->
 		<div id="footer">
 			<div class="container">
@@ -611,7 +559,7 @@ margin-top:50px;
 
 														"<ul class = 'ss'><li class='lili'><div class = 'clcl'><img src ="
 																+ result[i].img
-																+ " width=80px height=80px></div><span class = 'singer'  >"
+																+ " width=80px height=80px></div><span class = 'singer' >"
 																+ result[i].singer
 																+ "</span><span class = 'listCheck' ><br>"
 																+ result[i].title
@@ -619,8 +567,10 @@ margin-top:50px;
 
 									}
 
-									$('.listCheck').on('click', listCheck);
+									$('.ss').on('click', listCheck);
 									li = $('#table ul.ss');
+									
+								
 								},
 								error : function() {
 
@@ -632,13 +582,32 @@ margin-top:50px;
 				}
 			}
 		}
+		//<li class="lili"><div class="clcl"><img src="images/1.jpg" width="80px" height="80px"></div><span class="singer">V</span><span class="listCheck"><br>아무노래</span></li>
+		
+		
+		
 
 		function listCheck() {
-			var text = this.innerHTML;
-
+			var a = this.innerHTML;
+			console.log(a);
+			//var a = '<li class="lili"><div class="clcl"><img src="images/1.jpg" width="80px" height="80px"></div><span class="singer">V</span><span class="listCheck"><br>아무노래</span></li>';
+			a = a.replaceAll('<li class="lili"><div class="clcl">',"");
+			a = a.replaceAll('</div><span class="singer">',"");
+			a = a.replaceAll('</span></li>',"");
+			a = a.replaceAll('</span><span class="listCheck"><br>',",");
+			a = a.replaceAll(">",",")
+			var b = a.split(',');
+			var title = b[2];
+			var singer = b[1];
+			var text = title + " - " + singer;
+			
+			console.log(a);
+			console.log(singer);
+			console.log(text);
 			//replaceAll 사용
-
 			text = text.replaceAll("<br>", "");
+			
+			song = text.replaceAll('<li class="lili"><div class="clcl"><img src="images/1.jpg" width="80px" height="80px"></div><span class="singer">',"")			
 
 			$('#inputt').val(text);
 		}
@@ -683,7 +652,9 @@ margin-top:50px;
 		var a = null;
 		var b = null;
 		var m = [];
-		$('.gray').on('click',function() {
+		$('.gray').on(
+				'click',
+				function() {
 					/* 	$('.sj').css("background-color","#FBC7BE") */
 
 					b = ($(this).parent().parent().parent()
@@ -727,7 +698,7 @@ margin-top:50px;
 		//  })
 		$('#cartt').on('click', function() {
 
-			var idnum = <%=(Integer) session.getAttribute("idnum")%>;
+			var idnum =	<%=(Integer) session.getAttribute("idnum")%>;
 			console.log(idnum);
 
 			var click1 = $('.sj').children().children().children().text();
@@ -744,29 +715,29 @@ margin-top:50px;
 			}
 			console.log(musiclist[0]);
 
-			for ( var i in musiclist) {
+			for (var i in musiclist) {
 				m.push(musiclist[i])
 			}
 			console.log(m);
 
+			alert('장바구니에 담겼습니다:)');
+			
+
 			$.ajax({
 				url : "bucket.do",
 				type : 'post',
-				/* dataType : "json", */
+				//dataType : "json",
 				data : {
 					'idnum' : idnum,
 					'm' : m.join(",")
 				},
 				success : function(result) {
-					alert("성공");
+					
+					console.log("success");
 				}
-
 			})
-
 			m = [];
-
 		});
-
 	</script>
 
 </body>

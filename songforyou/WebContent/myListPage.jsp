@@ -128,11 +128,11 @@ modal-table{
                <% }
                else{for(int i = 0; i<dao.alltitle(dao.songid(info.getIdnum())).size();i++){ %>
                <tr>
-                  <td><input type="checkbox" name="select"></td>
+                  <td><input type="checkbox" name="select" class="selectt"></td>
                   <td align=right><img src = <%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getimg()%> width=50 height=50></td>
                   <td align=left><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).gettitle()%></td>
                   <td><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getSinger()%></td>         
-                  <td></td>         
+                  <td><img src = 'images/play.png' width=30px height=30px></td>         
                </tr><%}}}catch(IndexOutOfBoundsException e){
                   e.printStackTrace();
                   %>

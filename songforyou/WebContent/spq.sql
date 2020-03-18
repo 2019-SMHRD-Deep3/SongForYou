@@ -24,17 +24,7 @@ CREATE TABLE "HR"."SONGTITLE"
    "SINGER" VARCHAR2(50 BYTE) NOT NULL ENABLE, 
    "IMG" VARCHAR2(50 BYTE) NOT NULL ENABLE, 
     CONSTRAINT "SONGTITLE_PK" PRIMARY KEY ("SONGID"))
-  
-     CREATE TABLE "HR"."SONGBUCKET" 
-   (   "SONGID" NUMBER NOT NULL ENABLE, 
-   "IDNUM" NUMBER NOT NULL ENABLE, 
-    CONSTRAINT "SONGBUCKET_PK" PRIMARY KEY ("SONGID"),
-    CONSTRAINT "SONGBUCKET_FK1" FOREIGN KEY ("SONGID")
-     REFERENCES "HR"."SONGTITLE" ("SONGID") ENABLE, 
-    CONSTRAINT "SONGBUCKET_FK2" FOREIGN KEY ("IDNUM")
-     REFERENCES "HR"."SONGMEMBER" ("IDNUM") ENABLE
-   ) 
-   
+
      CREATE TABLE "HR"."SONGBUCKET" 
    ("BUCKETID" NUMBER NOT NULL ENABLE,
    "SONGID" NUMBER NOT NULL ENABLE, 
@@ -51,9 +41,9 @@ CREATE TABLE "HR"."SONGTITLE"
    )
    
 
-
-INSERT INTO songtitle VALUES (1,'마음을 드려요','f','아이유','images/0.jpg');
-INSERT INTO songtitle VALUES (2,'아무노래','f','V','images/1.jpg');
+insert into SONGBUCKET values(bucketid_seq.nextval,1,1);
+INSERT INTO songtitle VALUES (1,'마음을 드려요','https://www.youtube.com/watch?v=UuV2BmJ1p_I','아이유','images/0.jpg');
+INSERT INTO songtitle VALUES (2,'아무노래','f','지코','images/amu.jfif');
 INSERT INTO songtitle VALUES (3,'그때 그 아인','f','김필','images/2.jpg');
 INSERT INTO songtitle VALUES (4,'늦은 밤 너의 집 앞 골목길에서','f','노을','images/3.jpg');
 INSERT INTO songtitle VALUES (5,'다시 난, 여기','f','백예린','images/4.jpg');
@@ -74,6 +64,7 @@ select * from songmember
 select * from songbucket
 select * from songtitle
 drop table test5
+drop sequence bucketid_seq
 drop sequence id_seq
 drop table SONGMEMBER
 drop table songtitle

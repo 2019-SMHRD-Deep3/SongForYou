@@ -2169,6 +2169,7 @@ input, select, textarea {
 
 		.wrapper.style2 {
 			padding-top: 0;
+			color : #F0F4F4; 
 		}
 
 /* Header */
@@ -2660,6 +2661,7 @@ input, select, textarea {
 		/* Wrapper */
 
 			.wrapper {
+				background : rgb()
 				padding-left: 2em;
 				padding-right: 2em;
 			}
