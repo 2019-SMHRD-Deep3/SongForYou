@@ -130,13 +130,11 @@ form {
 }
 
 #song_info {
-	width: 200px;
-	height: 200px;
+	width: 300px;
+	height: 300px;
 	align: center !important;
 	displaty: block;
-	margin-left: 50px;
-	margin-right: 50px;
-	margin-top: 50px;
+
 }
 
 .clcl {

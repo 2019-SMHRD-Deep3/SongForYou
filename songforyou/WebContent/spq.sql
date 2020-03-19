@@ -42,17 +42,17 @@ CREATE TABLE "HR"."SONGTITLE"
    
 
 
-insert into songbucket values(bucketid_seq.nextval,1,21);
-INSERT INTO songtitle VALUES (1,'마음을 드려요','f','아이유','images/0.jpg');
-INSERT INTO songtitle VALUES (2,'아무노래','f','V','images/1.jpg');
-INSERT INTO songtitle VALUES (3,'그때 그 아인','f','김필','images/2.jpg');
-INSERT INTO songtitle VALUES (4,'늦은 밤 너의 집 앞 골목길에서','f','노을','images/3.jpg');
-INSERT INTO songtitle VALUES (5,'다시 난, 여기','f','백예린','images/4.jpg');
-INSERT INTO songtitle VALUES (6,'반만','f','진민호','images/5.jpg');
-INSERT INTO songtitle VALUES (7,'둘만의 세상으로 가','f','crush','images/6.jpg');
-INSERT INTO songtitle VALUES (8,'문득','f','노을','images/7.jpg');
-INSERT INTO songtitle VALUES (9,'어떻게 이별까지 사랑하겠어','f','AKMU(악동뮤지션)','images/8.jpg');
-INSERT INTO songtitle VALUES (10,'너를 사랑하고 있어','f','백현(BAEKHYUN)','images/9.jpg');
+
+INSERT INTO songtitle VALUES (1,'마음을 드려요','f','아이유','images/IU.png');
+INSERT INTO songtitle VALUES (2,'아무노래','f','ZICO','images/ZICO.jpg');
+INSERT INTO songtitle VALUES (3,'그때 그 아인','f','김필','images/Kimfeel.jpg');
+INSERT INTO songtitle VALUES (4,'늦은 밤 너의 집 앞 골목길에서','f','노을','images/Noeul.jpg');
+INSERT INTO songtitle VALUES (5,'다시 난, 여기','f','백예린','images/Baek.jpg');
+INSERT INTO songtitle VALUES (6,'반만','f','진민호','images/Jin.jpg');
+INSERT INTO songtitle VALUES (7,'둘만의 세상으로 가','f','crush','images/Crush.jpg');
+INSERT INTO songtitle VALUES (8,'문득','f','노을','images/Moon.jpg');
+INSERT INTO songtitle VALUES (9,'어떻게 이별까지 사랑하겠어','f','AKMU(악동뮤지션)','images/AKMU.jpg');
+INSERT INTO songtitle VALUES (10,'너를 사랑하고 있어','f','백현(BAEKHYUN)','images/BaekHyeon.jpg');
 
 insert into songbucket values (bucketid_seq.nextval, (select songid from songtitle where title='마음을 드려요'),(select idnum from songmember where idnum=21))
 insert into songbucket values( bucketid_seq.nextval, (select songid from songtitle where title=?),(select idnum from songmember where idnum=?))

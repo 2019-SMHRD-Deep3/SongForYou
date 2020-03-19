@@ -132,7 +132,7 @@ modal-table{
                   <td align=right><img src = <%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getimg()%> width=50 height=50></td>
                   <td align=left><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).gettitle()%></td>
                   <td><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getSinger()%></td>         
-                  <td><img src = 'images/play.png' width=30px height=30px></td>         
+                  <td><img src = 'images/pinkplay.png' width=30px height=30px></td>         
                </tr><%}}}catch(IndexOutOfBoundsException e){
                   e.printStackTrace();
                   %>
