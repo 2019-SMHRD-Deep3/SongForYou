@@ -57,6 +57,7 @@ table {
 th, td {
     border-bottom: 1px solid #444444;
     padding: 10px;
+    vertical-align: middle;
   }
 body{
 	background: #FFFFFF !important;
@@ -73,6 +74,10 @@ modal-table{
 	width:100%;
 	height:200px;
 	}
+.play {
+	background-color: #FFFFFF !important;
+}
+	
 </style>
 </head>
 <body>
@@ -131,9 +136,10 @@ modal-table{
                   <td><input type="checkbox" name="select" class="selectt"></td>
                   <td align=right><img src = <%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getimg()%> width=50 height=50></td>
                   <td align=left><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).gettitle()%></td>
-                  <td><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getSinger()%></td>         
-                  <td><img src = 'images/pinkplay.png' width=30px height=30px></td>         
-               </tr><%}}}catch(IndexOutOfBoundsException e){
+                  <td><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getSinger()%></td>        
+                  <td><button type='button' class='play' onclick="location.href='https://www.youtube.com/results?search_query=%EB%A7%88%EC%9D%8C%EC%9D%84+%EB%93%9C%EB%A0%A4%EC%9A%94'"><img src = 'images/pinkplay.png' width=30px height=30px></button></td>
+               </tr><%}}}
+            catch(IndexOutOfBoundsException e){
                   e.printStackTrace();
                   %>
                   <div><table><tr><td>자료가 없습니다. 노래를 추가해주세요!</td></tr></table></div>
@@ -180,3 +186,4 @@ modal-table{
       </script>
 </body>
 </html>
+
