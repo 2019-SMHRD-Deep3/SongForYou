@@ -49,7 +49,7 @@ public class MusicBucketDAO {
 
 	public MusicDTO bucketlistjoin(int idnum) {
 
-		System.out.println(idnum);
+
 
 		return null;
 	}
@@ -58,8 +58,7 @@ public class MusicBucketDAO {
 
 		int cnt = 0;
 		
-		System.out.println(idnum);
-		System.out.println(titlename);
+	
 		
 		try {
 			getConnection();
@@ -107,19 +106,15 @@ public class MusicBucketDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}catch (NullPointerException e) {
+			e.printStackTrace();
 		} finally {
 			close();
 		}
 		
-		System.out.println(l_bucketid+"fff");
-		System.out.println(l_songid+"hi");
+	
 	
 
-		/*
-		 * System.out.println(songid.get(0).getSongid());
-		 * System.out.println(songid.get(1).getSongid());
-		 * System.out.println(songid.get(2).getSongid());
-		 */
 
 		return songid;
 	}
@@ -134,7 +129,7 @@ public class MusicBucketDAO {
 		String l_title = null;
 		String l_singer = null;
 		String l_img = null;
-
+		int l_songid = 0;
 		try {
 			getConnection();
 			String sql = "select title,singer,img from songtitle where songid= ?";
@@ -144,7 +139,7 @@ public class MusicBucketDAO {
 				psmt.setInt(1, songid.get(i).getSongid());
 				rs = psmt.executeQuery();
 				if (rs.next()) {
-					System.out.println("�ڡڡڡڡ�");
+				
 					l_title = rs.getString(1);
 					l_singer = rs.getString(2);
 					l_img = rs.getString(3);
@@ -162,7 +157,32 @@ public class MusicBucketDAO {
 
 		return list;
 	}
-	
+	public void alldelete(int dto) {
+		try {
+			getConnection();
+			String sql = "delete from songbucket where idnum=?";
+			psmt=conn.prepareStatement(sql);
+			psmt.setInt(1, dto);
+			psmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	}
+	public void delete(String dto) {
+		try {
+			getConnection();
+			String sql = "delete from songbucket where bucketid=to_number(?)";
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, dto);
+			psmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+	}
 	/*
 	 * public void delete() {
 	 * 
