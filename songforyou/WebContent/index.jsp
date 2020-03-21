@@ -4,11 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
-<!--
-	Helios by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 <head>
 <title>당신의 취향을 위한 우리는 쏭뽀유</title>
@@ -269,16 +265,11 @@ form {
 				<a href="#" class="image featured">
 				<img src="images/0.jpg" alt=""  id="mainsong">
 				</a>
-				<header>
-					<a href="#">제목, 가수</a>
-				</header>
-				<p></p> -->
-				<!-- 				<footer>
-					<a href="#" class="button">Continue Reading</a>
-				</footer> -->
+	
+				<p></p>
 			</article>
-
-		</div>
+		</div> -->
+		
 		<!-- Carousel -->
 		<section class="carousel">
 			<%
