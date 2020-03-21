@@ -118,7 +118,7 @@ modal-table{
 			</button><br><br>
 			<table class = "track">
 				<thead>
-				<tr bgcolor=#f0f4f4>
+				<tr bgcolor=#FFC7BE>
 					<th scope="col">
 						<input type="checkbox" class="Allselect" id="Allselect" name="all">
 					</th>

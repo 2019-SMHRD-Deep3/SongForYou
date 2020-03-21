@@ -40,6 +40,13 @@ CREATE TABLE "HR"."SONGTITLE"
      REFERENCES "HR"."SONGMEMBER" ("IDNUM") ENABLE
    )
    
+   CREATE TABLE "HR"."SONGRESULT"
+   	( "TITLE" VARCHAR2(1000 BYTE) NOT NULL ENABLE,
+   	  "SINGER" VARCHAR2(1000 BYTE) NOT NULL ENABLE,
+   	  "RESULT" VARCHAR2(1000 BYTE));
+   	  
+   INSERT INTO SONGRESULT VALUES ('마음을 드려요', '아이유', '타이틀,가수,노래,타이틀,가수,노래,타이틀,가수,노래,타이틀,가수,노래,타이틀,가수,노래,타이틀,가수,노래')
+   
 
 
 
@@ -64,9 +71,11 @@ select title,singer,img from songtitle where songid= 1
 select * from songmember
 select * from songbucket
 select * from songtitle
+select * from SONGRESULT
 drop table test5
 drop sequence bucketid_seq
 drop sequence id_seq
 drop table SONGMEMBER
 drop table songtitle
 drop table songbucket
+drop table songresult
