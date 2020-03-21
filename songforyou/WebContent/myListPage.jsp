@@ -1,6 +1,8 @@
 <%@page import="model.MusicDTO"%>
 <%@page import="model.MusicBucketDAO"%>
+<%@page import="model.MusicBucketDTO"%>
 <%@page import="model.MemberDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -21,7 +23,9 @@
    width: 50%;
    height: 60px;
 }
-
+.hide {
+	color: white;
+}
 #search {
    background-color: pink;
    !important;
@@ -50,17 +54,18 @@ form {
 
 table {
     width: 100%;
-    border-top: 1px solid #444444;
+    border-bottom: 1px solids;
     border-collapse: collapse;
     text-align : center;
   }
+ 
+  
 th, td {
     border-bottom: 1px solid #444444;
     padding: 10px;
+    vertical-align: middle;
   }
-  
-
- 
+   
 td {
 	border-bottom : 1px solid;
 	border-color : #EAEAEA;
@@ -81,11 +86,17 @@ modal-table{
 	width:100%;
 	height:200px;
 	}
-	
+
 .info, .artist, .listen	{
-	font-weight : 10px;
+	font-weight : 10px;}
+
+.play {
+	background-color: #FFFFFF !important;
+
 }
-	
+#tableline {
+	border-bottom : 1px #FAE0D4 !important;
+}
 </style>
 </head>
 <body>
@@ -118,38 +129,41 @@ modal-table{
             <div class="row">
 
 			<button type="button" class="bin">
-				<img src="images/trash.png" width=50px height=50px>
+				<img class='bin2' src="images/trash.png" width=50px height=50px>
 			</button><br><br>
 			<table class = "track">
 				<thead>
-				<tr bgcolor=#FFC7BE >
+				<tr bgcolor=#FFC7BE id="tableline" >
 					<th scope="col">
-						<input type="checkbox" id="Allselect">      
+						<input type="checkbox" class="Allselect" id="Allselect" name="all">
 					</th>
 					<th scope="col" class="info" colspan=2>곡/앨범</th>
 					<th scope="col" class="artist">아티스트</th>
-					<th scope="col" class = "listen">듣기</th>
+
+					<th scope="col">듣기</th>
+					<th scope="col"></th>
+
 				</tr></thead>
-			   <tbody>
+			   <tbody id="ttt">
             <%try{
                if (dao.alltitle(dao.songid(info.getIdnum())).isEmpty()){
                %>
-               <div>
-               
-               </div>
+               		
                
                <% }
                else{for(int i = 0; i<dao.alltitle(dao.songid(info.getIdnum())).size();i++){ %>
                <tr>
-                  <td><input type="checkbox" name="select" class="selectt"></td>
+                  <td><input type="checkbox" class="selectt" name="determine"></td>
                   <td align=right><img src = <%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getimg()%> width=50 height=50></td>
-                  <td align=left><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).gettitle()%></td>
-                  <td><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getSinger()%></td>         
-                  <td><img src = 'images/pinkplay.png' width=30px height=30px></td>         
+
+                  <td class=vvv align=left><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).gettitle()%></td>
+                  <td calss=vvv><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getSinger()%></td>         
+                  <td><img src = 'images/pinkplay.png' width=30px height=30px></td>
+                  <td class=hide><%=dao.songid(info.getIdnum()).get(i).getBucketid()%></td>         
                </tr><%}}}catch(IndexOutOfBoundsException e){
                   e.printStackTrace();
                   %>
-                  <div><table><tr><td>자료가 없습니다. 노래를 추가해주세요!</td></tr></table></div>
+                  <!-- <div><table><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table></div> -->
                   <%} %>
                
             </tbody>   		
@@ -172,7 +186,10 @@ modal-table{
  		}else{
  			$(".selectt").prop("checked",false);
  		}
- 	})
+ 	});
+ 	
+ 	
+ 	
  	
 /* 	$('.bin').on('click',function(){
   		var data = [];
@@ -191,5 +208,55 @@ modal-table{
  	}); */
 
       </script>
+      <script>
+		$('.bin2').on(
+				'click',
+				function() {
+
+					var s = [];
+					var d = [];
+
+					var Allselect = $('.Allselect').val();
+					var selectt = $('.selectt').val();
+
+					var titles = $('input[name=determine]:checked').parent().next().next().text();
+					var singers = $('input[name=determine]:checked').parent().next().next().next().text();
+					var id = $('input[name=determine]:checked').parent().next().next().next().next().next().text();
+					
+					if ($("input[name='all']").prop("checked")){
+						$.ajax({
+						    type : 'post',
+						    url : 'AllDelete', 
+						    dataType : 'text',
+						    success : function(result) { // 결과 성공 콜백함수
+						        console.log(result);
+						    $('#ttt').empty();
+						    },
+						    error : function(request, status, error) { // 결과 에러 콜백함수
+						        console.log(error)
+						    }
+						});
+						window.location.href="myListPage.jsp";
+					}else if ($("input[name='all']").prop("checked",false)){
+					$.ajax({
+						
+						type : 'post',
+						url : 'Delete',
+						data : {'id':id},
+						success : function(result) {
+							
+							alert("성공");
+							
+							
+						},
+						error : function(request, status, error) { // 결과 에러 콜백함수
+							console.log(error)
+						}
+						
+					});}
+					window.location.href="myListPage.jsp";
+				});
+	</script>
 </body>
 </html>
+

@@ -242,7 +242,7 @@ form {
 					<%=info.getName()%>´Ô <strong> ½ö»ÇÀ¯¢Ý</strong>
 				</h2>
 
-				<form action="#">
+				<form a  ction="#">
 					<br>
 
 					<table id="table">
@@ -737,6 +737,8 @@ form {
 
 			alert('Àå¹Ù±¸´Ï¿¡ ´ã°å½À´Ï´Ù:)');
 			
+			
+			
 
 			$.ajax({
 				url : "bucket.do",
@@ -746,8 +748,7 @@ form {
 					'idnum' : idnum,
 					'm' : m.join(",")
 				},
-				success : function(result) {
-					
+				success : function(result) {					
 					console.log("success");
 				}
 			})
