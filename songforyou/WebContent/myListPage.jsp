@@ -47,24 +47,31 @@ p {
 form {
    margin-left: 300px;
 }
-.bin {
-	position : absolut !important;
+.bin2 {
+	position : relative !important;
+	left : 118px;
 	background-color : white !important;
+	height : 45 !important;
 }
 
+
 table {
-    width: 100%;
-    border-bottom: 1px solids;
+    width: 80%;
+    /* border-bottom: 1px solids; */
     border-collapse: collapse;
     text-align : center;
+    
   }
  
   
-th, td {
-    border-bottom: 1px solid #444444;
+th, td {    
     padding: 10px;
     vertical-align: middle;
   }
+th {
+	border-bottom : #EAEAEA;
+	font-weight: bold;
+}
    
 td {
 	border-bottom : 1px solid;
@@ -94,9 +101,10 @@ modal-table{
 	background-color: #FFFFFF !important;
 
 }
-#tableline {
-	border-bottom : 1px #FAE0D4 !important;
+.tableline {
+	border-bottom: 1px solid #EAEAEA !important;
 }
+
 </style>
 </head>
 <body>
@@ -116,24 +124,20 @@ modal-table{
 						<li class=scale><a href="mypage.jsp">Updateinfo</a></li>
 					</ul></li>
 				<li class=scale><a href="Service">Service</a> <li class=scale>
-			<a
-					href="LogoutService">Logout</a></li></ul>
+			<a href="LogoutService">Logout</a></li></ul>
 		</nav>
 
          <section id="features" class="container special">
             <header>
-            
-               <h2><%=info.getName() %>¥‘¿« MUSIC LIST</h2><br><br>
-
-            </header>
-            <div class="row">
-
-			<button type="button" class="bin">
-				<img class='bin2' src="images/trash.png" width=50px height=50px>
-			</button><br><br>
-			<table class = "track">
+               <h2 align=center><%=info.getName() %>¥‘¿« MUSIC LIST</h2>
+			</header>
+				  <img class='bin2' src="images/trash.png" width=50px height=50px><br><br>
+			<div class="row">		
+           
+			<table class = "track" style="margin-left: auto; margin-right: auto;">
+			<br><br>
 				<thead>
-				<tr bgcolor=#FFC7BE id="tableline" >
+				<tr bgcolor=#FFC7BE class="tableline" style = 'border-bottom: 1px solid #FAE0D4;'>
 					<th scope="col">
 						<input type="checkbox" class="Allselect" id="Allselect" name="all">
 					</th>
@@ -153,13 +157,13 @@ modal-table{
                <% }
                else{for(int i = 0; i<dao.alltitle(dao.songid(info.getIdnum())).size();i++){ %>
                <tr>
-                  <td><input type="checkbox" class="selectt" name="determine"></td>
-                  <td align=right><img src = <%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getimg()%> width=50 height=50></td>
+                  <td width=30><input type="checkbox" class="selectt" name="determine"></td>
+                  <td align=right width=80><img src = <%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getimg()%> width=50 height=50></td>
 
-                  <td class=vvv align=left><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).gettitle()%></td>
-                  <td calss=vvv><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getSinger()%></td>         
-                  <td><img src = 'images/pinkplay.png' width=30px height=30px></td>
-                  <td class=hide><%=dao.songid(info.getIdnum()).get(i).getBucketid()%></td>         
+                  <td id=title class=vvv align=left width=200><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).gettitle()%></td>
+                  <td id=singer class=vvv width=100><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getSinger()%></td>         
+                  <td width=100 id="here"><img src = 'images/btnplay.png' width=40px height=40px id="musicplay"></td>
+                  <td class=hide width=10><%=dao.songid(info.getIdnum()).get(i).getBucketid()%></td>         
                </tr><%}}}catch(IndexOutOfBoundsException e){
                   e.printStackTrace();
                   %>
@@ -209,6 +213,27 @@ modal-table{
 
       </script>
       <script>
+      $('#musicplay').on('click',function(){
+    	  var title = $('#title').text();
+    	  var singer = $('#singer').text();
+    	  console.log(title);
+    	  console.log(singer);
+
+    	
+    		$.ajax({
+    			url : 'plcheck.do',
+    			type : 'post',
+    			dataType : "json",
+    			data : {'title':title, 'singer':singer},
+    			success : function(result){
+    		    	  $('#musicplay').remove();
+    		    	  $('#here').append("<audio controls><source src="
+    		    	      			  +result+
+    		    	      			  " type='audio/ogg'></audio>");
+    		    	  console.log(result);
+    			}
+    		})
+      })
 		$('.bin2').on(
 				'click',
 				function() {
