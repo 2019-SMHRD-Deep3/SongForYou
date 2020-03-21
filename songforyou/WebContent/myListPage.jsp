@@ -58,6 +58,14 @@ th, td {
     border-bottom: 1px solid #444444;
     padding: 10px;
   }
+  
+
+ 
+td {
+	border-bottom : 1px solid;
+	border-color : #EAEAEA;
+} 
+ 
 body{
 	background: #FFFFFF !important;
 	color: #5b5b5b;
@@ -73,6 +81,11 @@ modal-table{
 	width:100%;
 	height:200px;
 	}
+	
+.info, .artist, .listen	{
+	font-weight : 10px;
+}
+	
 </style>
 </head>
 <body>
@@ -109,13 +122,13 @@ modal-table{
 			</button><br><br>
 			<table class = "track">
 				<thead>
-				<tr bgcolor=#f0f4f4>
+				<tr bgcolor=#FFC7BE >
 					<th scope="col">
-						<input type="checkbox" id="Allselect">
+						<input type="checkbox" id="Allselect">      
 					</th>
 					<th scope="col" class="info" colspan=2>°î/¾Ù¹ü</th>
 					<th scope="col" class="artist">¾ÆÆ¼½ºÆ®</th>
-					<th scope="col">µè±â</th>
+					<th scope="col" class = "listen">µè±â</th>
 				</tr></thead>
 			   <tbody>
             <%try{
