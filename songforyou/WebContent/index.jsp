@@ -242,7 +242,7 @@ form {
 					<%=info.getName()%>´Ô <strong> ½ö»ÇÀ¯¢Ý</strong>
 				</h2>
 
-				<form a  ction="#">
+				<form action="#">
 					<br>
 
 					<table id="table">
@@ -265,16 +265,11 @@ form {
 				<a href="#" class="image featured">
 				<img src="images/0.jpg" alt=""  id="mainsong">
 				</a>
-				<header>
-					<a href="#">Á¦¸ñ, °¡¼ö</a>
-				</header>
-				<p></p> -->
-				<!-- 				<footer>
-					<a href="#" class="button">Continue Reading</a>
-				</footer> -->
+	
+				<p></p>
 			</article>
-
-		</div>
+		</div> -->
+		
 		<!-- Carousel -->
 		<section class="carousel">
 			<%
