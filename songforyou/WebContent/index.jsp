@@ -259,17 +259,6 @@ form {
 		<%
 			}
 		%>
-		<!-- Main -->
-<!-- 		<div class="wrapper style2">
-			<article id="main" class="container special">
-				<a href="#" class="image featured">
-				<img src="images/0.jpg" alt=""  id="mainsong">
-				</a>
-	
-				<p></p>
-			</article>
-		</div> -->
-		
 		<!-- Carousel -->
 		<section class="carousel">
 			<%
@@ -474,6 +463,9 @@ form {
 		</div>
 
 	</div>
+	
+
+
 
 	<!-- Scripts -->
 
