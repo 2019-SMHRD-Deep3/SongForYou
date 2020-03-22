@@ -20,7 +20,7 @@ body{background : white}
 	text-align:center;
 }
 img{
-	float: center !important;
+	margin:0 auto !important;
 }
 </style>
 </head>
@@ -49,7 +49,7 @@ img{
 	01</div>
 	<div class="search" style="height:100px;float:left"> 취향에 맞는 노래를 검색해보세요<br>
 	</div><br>
-	<div style="text-align:center;width:60%;"><img src="images/search1.PNG"><br><br></div>
+	<div style="text-align:center;width:60%;"><pre>          </pre><img src="images/search1.PNG"><br><br></div>
 	</div>
 	
 	<div class="part2">
@@ -63,13 +63,14 @@ img{
 	<div class="three" style="width:200px;height:100px;float:left;text-align:right;font-size:100px;color:#FFC7BE">
 	03</div>
 	<div class="pick" style="height:150px;float:left"> 마음에 드는 노래는 Pick!</div>
-	<div style="text-align:center;width:60%;"><img src="images/search1.PNG"><br><br></div>
+	<div style="text-align:center;width:60%;"><img src="images/pick.PNG"><br><br></div>
 	</div>
 	
 	<div class="part4">
 	<div class="four" style="width:200px;height:100px;float:left;text-align:right;font-size:100px;color:#FFC7BE">
 	04</div>
 	<div class="list" style="height:150px;float:left"> 나만의 리스트를 만들어보세요</div>
+	<div style="text-align:center;width:60%;"><img src="images/list.PNG"><br><br></div>
 	</div>
 	</div>
 </body>
