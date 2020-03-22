@@ -230,7 +230,7 @@ form {
 						<li class=scale><a id='mylist' href="myListPage.jsp">Mylist</a></li>
 						<li class=scale><a href="mypage.jsp">Updateinfo</a></li>
 					</ul></li>
-				<li class=scale><a href="Service">Service</a>
+				<li class=scale><a href="ServicePage.jsp">Service</a>
 				<li class=scale><a href="LogoutService">Logout</a></li>
 			</ul>
 		</nav>
