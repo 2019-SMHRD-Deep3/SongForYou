@@ -153,7 +153,7 @@ modal-table{
 						<li class=scale><a id='mylist' href="myListPage.jsp">Mylist</a></li>
 						<li class=scale><a href="mypage.jsp">Updateinfo</a></li>
 					</ul></li>
-				<li class=scale><a href="Service">Service</a> <li class=scale>
+				<li class=scale><a href="ServicePage.jsp">Service</a> <li class=scale>
 			<a href="LogoutService">Logout</a></li></ul>
 		</nav>
 
@@ -167,6 +167,7 @@ modal-table{
 			<table class = "track" style="margin-left: auto; margin-right: auto;">
 			<br><br>
 				<thead>
+
 				<tr bgcolor=#FFC7BE class="tableline" style = 'border-bottom: 1px solid #FAE0D4;'>
 					<th scope="col">
 						<input type="checkbox" class="Allselect" id="Allselect" name="all">
