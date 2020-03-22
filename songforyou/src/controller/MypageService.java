@@ -28,15 +28,12 @@ public class MypageService extends HttpServlet {
 		String name = request.getParameter("name");
 		int age = Integer.parseInt(request.getParameter("age"));
 		String sex1 = request.getParameter("sex");
-		System.out.println(sex1);
-		System.out.println(id);
 		int sex = 0;
 		if("³²".equals(sex1)) {
 			sex = 1;
 		}else {
 			sex=2;
 		}
-		System.out.println(sex);
 		MemberDTO dto = new MemberDTO(id,pw,name,age,sex);
 		MemberDAO dao = new MemberDAO();
 		

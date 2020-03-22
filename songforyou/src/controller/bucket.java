@@ -26,7 +26,6 @@ public class bucket extends HttpServlet {
 		
 		int idnum = Integer.parseInt(request.getParameter("idnum"));
 		String m = request.getParameter("m");
-		System.out.println(m);
 		MusicBucketDAO dao = new MusicBucketDAO();
 		
 		int len = m.length();
@@ -43,11 +42,6 @@ public class bucket extends HttpServlet {
 		  list = dao.bucketlist(idnum,value[i]); 
 		  }
 		  
-		  if(list>0) {
-			  System.out.println("개같네");
-		  }else {
-			  System.out.println("왜 안돼냐");
-		  }
 		  
 		
 		 

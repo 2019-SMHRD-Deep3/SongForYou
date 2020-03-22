@@ -47,9 +47,7 @@ height : 58%;
    width: 25%;
    height: 50px;
 }
-.hide {
-	color: white;
-}
+
 #search {
    background-color: pink;
    !important;
@@ -134,6 +132,9 @@ modal-table{
 	
 	font-weight: bold;
 }
+.emptyspace{
+width : 1%;
+}
 
 </style>
 </head>
@@ -143,6 +144,7 @@ modal-table{
       MusicBucketDAO dao = new MusicBucketDAO();
       
    	  MusicDTO dto = null; 
+   	  int cnt=0;
    %>
 <div class="wrapper style1">
 	<nav id="nav">
@@ -176,7 +178,7 @@ modal-table{
 					<th scope="col" class="artist">아티스트</th>
 
 					<th scope="col">듣기</th>
-					<th scope="col"></th>
+					<th class='emptyspace' scope="col"></th>
 
 				</tr></thead>
 			   <tbody id="ttt">
@@ -188,13 +190,13 @@ modal-table{
                <% }
                else{for(int i = 0; i<dao.alltitle(dao.songid(info.getIdnum())).size();i++){ %>
                <tr>
-                  <td width=30><input type="checkbox" class="selectt" name="determine"></td>
+                  <td width=30><input type="checkbox" class="selectt" name="determine<%=i%>"></td>
                   <td align=right width=80><img src = <%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getimg()%> width=50 height=50></td>
 
                   <td id=title class=vvv align=left width=200><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).gettitle()%></td>
                   <td id=singer class=vvv width=100><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getSinger()%></td>         
                   <td width=100 id="here"><img src = 'images/btnplay.png' width=40px height=40px id="musicplay"></td>
-                  <td class=hide width=10><%=dao.songid(info.getIdnum()).get(i).getBucketid()%></td>         
+                  <td class="hide<%=i %>" width=10 id="<%=dao.songid(info.getIdnum()).get(i).getBucketid()%>" ><%cnt++; %></td>         
                </tr><%}}}catch(IndexOutOfBoundsException e){
                   e.printStackTrace();
                   %>
@@ -301,15 +303,15 @@ modal-table{
     	 						
 								$('.searchModal').hide();
 							};
-
+							
 							$('.bin2')
 									.on(
 											'click',
 											function() {
 
-												var s = [];
+												var id = [];
 												var d = [];
-
+												<%int k=0;%>
 												var Allselect = $('.Allselect')
 														.val();
 												var selectt = $('.selectt')
@@ -323,11 +325,7 @@ modal-table{
 														'input[name=determine]:checked')
 														.parent().next().next()
 														.next().text();
-												var id = $(
-														'input[name=determine]:checked')
-														.parent().next().next()
-														.next().next().next()
-														.text();
+												
 
 												if ($("input[name='all']")
 														.prop("checked")) {
@@ -355,8 +353,22 @@ modal-table{
 												} else if ($(
 														"input[name='all']")
 														.prop("checked", false)) {
+													
+													for(var i=0;i<<%=cnt%>;i++){
+														
+														if($("input[name=determine"+i+"]").prop("checked")){
+															
+															id.push($('.hide'+i).attr("id"));
+															
+															
+														}
+													}
+													
+													
+													
+													$.ajaxSettings.traditional = true;
 													$.ajax({
-
+														
 														type : 'post',
 														url : 'Delete',
 														data : {
@@ -371,7 +383,6 @@ modal-table{
 														error : function(
 																request,
 																status, error) { // 결과 에러 콜백함수
-															console.log(error)
 														}
 
 													});

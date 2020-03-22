@@ -29,7 +29,6 @@ public class MylistService extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("idnum", info.getIdnum());
 			session.setAttribute("info", info);
-			System.out.println(info.getIdnum());
 		}else {
 			response.sendRedirect("loginpage.jsp");
 		}
