@@ -183,20 +183,22 @@ width : 1%;
 				</tr></thead>
 			   <tbody id="ttt">
             <%try{
-               if (dao.alltitle(dao.songid(info.getIdnum())).isEmpty()){
+            	ArrayList<MusicBucketDTO> list2 = dao.songid(info.getIdnum());
+            	ArrayList<MusicDTO> list = dao.alltitle(list2);
+               if (list.isEmpty()){
                %>
                		
                
                <% }
-               else{for(int i = 0; i<dao.alltitle(dao.songid(info.getIdnum())).size();i++){ %>
+               else{for(int i = 0; i<list.size();i++){ %>
                <tr>
                   <td width=30><input type="checkbox" class="selectt" name="determine<%=i%>"></td>
-                  <td align=right width=80><img src = <%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getimg()%> width=50 height=50></td>
+                  <td align=right width=80><img src = <%= list.get(i).getimg()%> width=50 height=50></td>
 
-                  <td id=title class=vvv align=left width=200><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).gettitle()%></td>
-                  <td id=singer class=vvv width=100><%= dao.alltitle(dao.songid(info.getIdnum())).get(i).getSinger()%></td>         
+                  <td id=title class=vvv align=left width=200><%= list.get(i).gettitle()%></td>
+                  <td id=singer class=vvv width=100><%= list.get(i).getSinger()%></td>         
                   <td width=100 id="here"><img src = 'images/btnplay.png' width=40px height=40px id="musicplay"></td>
-                  <td class="hide<%=i %>" width=10 id="<%=dao.songid(info.getIdnum()).get(i).getBucketid()%>" ><%cnt++; %></td>         
+                  <td class="hide<%=i %>" width=10 id="<%=list2.get(i).getBucketid()%>" ><%cnt++; %></td>         
                </tr><%}}}catch(IndexOutOfBoundsException e){
                   e.printStackTrace();
                   %>
@@ -291,7 +293,7 @@ width : 1%;
     				
     				
     				
-    				$('#eee').before("<img id = 'imgg'src="+result.img+" style = 'width : 300px; height : 300px;' alt=''><br class = 'brr'><br class = 'brr'><div class = 'divv' align = 'center'>"+result.title+" </div><div class = 'divv' align = 'center' id = 'singerr'>"+result.singer+"</div><br class = 'brr'><audio id = 'auau' controls><source src="+result.chord+" type='audio/ogg'></audio>");
+    				$('#eee').before("<img id = 'imgg'src="+result.img+" style = 'width : 300px; height : 300px;' alt=''><br class = 'brr'><br class = 'brr'><div class = 'divv' align = 'center'>"+result.title+" </div><div class = 'divv' align = 'center' id = 'singerr'>"+result.singer+"</div><br class = 'brr'><audio autoplay = true id = 'auau' controls><source src="+result.chord+" type='audio/ogg'></audio>");
     		    	  
     				console.log(result.title+'Å¸ÀÌÆ²');
     				console.log(result.singer+'½Ì¾î');

@@ -62,7 +62,8 @@ INSERT INTO songresult VALUES('시작','가호','있잖아,폴킴,images/paulkim.jpg,설렘
 
 INSERT INTO songtitle VALUES (1,'시작','music/가호-시작.mp3','가호','images/start.jpg');
 INSERT INTO songtitle VALUES (2,'아무노래','music/지코-아무노래.mp3','ZICO','images/ZICO.jpg');
-INSERT INTO songtitle VALUES (3,'그때 그 아인','f','김필','images/Kimfeel.jpg');
+INSERT INTO songtitle VALUES (3,'커플','f','젝스키스','images/couple.jpg');
+INSERT INTO songtitle VALUES (26,'그때 그 아인','f','김필','images/Kimfeel.jpg');
 INSERT INTO songtitle VALUES (4,'늦은 밤 너의 집 앞 골목길에서','music/노을-늦은 밤 너의 집 앞 골목길에서.mp3','노을','images/Noeul.jpg');
 INSERT INTO songtitle VALUES (5,'다시 난, 여기','music/백예린-다시 난, 여기.mp3','백예린','images/Baek.jpg');
 INSERT INTO songtitle VALUES (6,'반만','f','진민호','images/Jin.jpg');
@@ -70,6 +71,7 @@ INSERT INTO songtitle VALUES (7,'둘만의 세상으로 가','f','crush','images/Crush.j
 INSERT INTO songtitle VALUES (8,'문득','f','노을','images/Moon.jpg');
 INSERT INTO songtitle VALUES (9,'어떻게 이별까지 사랑하겠어','music/AKMU(악동뮤지션)-어떻게 이별까지 사랑하겠어, 널 사랑하는 거지.mp3','AKMU(악동뮤지션)','images/AKMU.jpg');
 INSERT INTO songtitle VALUES (10,'너를 사랑하고 있어','music/백현-너를 사랑하고 있어.mp3','백현(BAEKHYUN)','images/BaekHyeon.jpg');
+INSERT INTO songtitle VALUES (18,'the end','f','이현우','images/theend.jpg');
 
 insert into songbucket values (bucketid_seq.nextval, (select songid from songtitle where title='마음을 드려요'),(select idnum from songmember where idnum=21))
 insert into songbucket values( bucketid_seq.nextval, (select songid from songtitle where title=?),(select idnum from songmember where idnum=?))

@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="model.MusicDTO"%>
 <%@page import="model.MusicDAO"%>
 <%@page import="model.MemberDTO"%>
@@ -271,11 +272,12 @@ form {
 
 				<br> <br id = "brbr">
 				<%
-					for (int i = 0; i < dao.song().size(); i++) {
+					ArrayList<MusicDTO> list = dao.song();
+					for (int i = 0; i < list.size(); i++) {
 				%>
 				<article class="sj">
 					<a href="#" class="image featured" id="song_info"> 
-					<img src=<%= dao.song().get(i).getimg()%> alt="" 
+					<img src=<%= list.get(i).getimg()%> alt="" 
 						></a>
 					<header>
 						<h3>
@@ -284,8 +286,8 @@ form {
 						</h3>
 					</header>
 
-					<p><%= dao.song().get(i).gettitle()%></p>
-					<p><h1 style="color: #E8847B; font-weight: bold; margin-top:10px;"><%= dao.song().get(i).getSinger()%></h1>
+					<p><%= list.get(i).gettitle()%></p>
+					<p><h1 style="color: #E8847B; font-weight: bold; margin-top:10px;"><%= list.get(i).getSinger()%></h1>
 					</p>
 
 				</article>
@@ -638,6 +640,8 @@ form {
 	</script> -->
 	
 	<script>
+	$('#search').on('click',aaa )
+	
 	function aaa(){
 		
 		var title = $('#inputt').val();
@@ -653,20 +657,53 @@ form {
 	 		data : {'title':title},
 	 		success : function(rs){
 	 			
-	 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[2]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[0]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[1]+"</h1></p></article");
-	 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[5]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[3]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[4]+"</h1></p></article");
-	 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[8]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[6]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[7]+"</h1></p></article");
-	 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[11]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[9]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[10]+"</h1></p></article");
-	 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[14]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[12]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[13]+"</h1></p></article");
-	 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[17]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[15]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[16]+"</h1></p></article");
-			
 	 			
+	 			$('#brbr').after("<article class='sj loading'><a href='#' class='image featured' id='song_info'><img src="+rs[2]+" alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[0]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[1]+"</h1></p></article");
+	 			$('#brbr').after("<article class='sj loading'><a href='#' class='image featured' id='song_info'><img src="+rs[5]+" alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[3]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[4]+"</h1></p></article");
+	 			$('#brbr').after("<article class='sj loading'><a href='#' class='image featured' id='song_info'><img src="+rs[8]+" alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[6]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[7]+"</h1></p></article");
+	 			$('#brbr').after("<article class='sj loading'><a href='#' class='image featured' id='song_info'><img src="+rs[11]+" alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[9]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[10]+"</h1></p></article");
+	 			$('#brbr').after("<article class='sj loading'><a href='#' class='image featured' id='song_info'><img src="+rs[14]+" alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[12]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[13]+"</h1></p></article");
+	 			$('#brbr').after("<article class='sj loading'><a href='#' class='image featured' id='song_info'><img src="+rs[17]+" alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[15]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[16]+"</h1></p></article");
+	 			$('#brbr').after("<article class='sj loading'><a href='#' class='image featured' id='song_info'><img src='images/start.jpg' alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>시작</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>가호</h1></p></article");
+	 			
+	 			$('.gray').on('click',gray_click);
+	 			
+	 			$items = $('.carousel article');
+	 			var	$window = $(window)
+	 			
+	 			var	timerId,itemWidth
+				limit = $items.length - Math.ceil($window.width() / itemWidth),
+				settings = {
+
+					// Carousels
+						carousels: {
+							speed: 4,
+							fadeIn: true,
+							fadeDelay: 250
+						},
+
+				};
+
+			timerId = window.setInterval(function() {
+				var x = $items.filter('.loading'), xf = x.first();
+
+				if (x.length <= limit) {
+
+					window.clearInterval(timerId);
+					$items.removeClass('loading');
+					return;
+
+				}
+
+				xf.removeClass('loading');
+
+			}, settings.carousels.fadeDelay);
 	 		}
 	 		
 	 	})  
 	 	
 	}
-		$('#search').on('click',aaa )
+		
 		
 		$('#inputt').on('keydown',function(){
 			
@@ -700,35 +737,38 @@ form {
 		var a = null;
 		var b = null;
 		var m = [];
-		$('.gray').on(
-				'click',
-				function() {
-					/* 	$('.sj').css("background-color","#FBC7BE") */
+		function gray_click() {
+			
+			/* 	$('.sj').css("background-color","#FBC7BE") */
 
-					b = ($(this).parent().parent().parent()
-							.css('background-color'));
+			b = ($(this).parent().parent().parent()
+					.css('background-color'));
 
-					if (b == "rgb(251, 199, 191)") {
-						$(this).parent().parent().parent().css(
-								"background-color", "rgb(255, 255, 255)")
-						a = $(this).parent().parent().next().text();
-						var f = musiclist.indexOf(a);
-						musiclist.splice(f, 1);
-					} else {
-						$(this).parent().parent().parent().css(
-								"background-color", "rgb(251, 199, 191)")
-						a = $(this).parent().parent().next().text();
-						musiclist.push(a);
-					}
-					console.log(musiclist[0]);
-					console.log(musiclist[1]);
-					console.log(musiclist[2]);
-					for (var i; i < musiclist.length; i++) {
-						m = musiclist[i];
-						console.log(m);
-					}
+			if (b == "rgb(251, 199, 191)") {
+				$(this).parent().parent().parent().css(
+						"background-color", "rgb(255, 255, 255)")
+				a = $(this).parent().parent().next().text();
+				var f = musiclist.indexOf(a);
+				musiclist.splice(f, 1);
+			} else {
+				$(this).parent().parent().parent().css(
+						"background-color", "rgb(251, 199, 191)")
+				a = $(this).parent().parent().next().text();
+				musiclist.push(a);
+			}
+			console.log(musiclist[0]);
+			console.log(musiclist[1]);
+			console.log(musiclist[2]);
+			for (var i; i < musiclist.length; i++) {
+				m = musiclist[i];
+				console.log(m);
+			}
 
-				});
+		}
+		$( document ).ready(function() {
+			$('.gray').on('click',gray_click);
+		});
+		
 	</script>
 
 	<script>

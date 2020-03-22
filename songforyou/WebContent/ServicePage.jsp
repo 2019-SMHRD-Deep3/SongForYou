@@ -56,7 +56,7 @@ img{
 	<div class="two" style="width:200px;height:100px;float:left;text-align:right;font-size:100px;color:#FFC7BE">
 	02</div>
 	<div class="want" style="height:150px;float:left"> 멜로디가 유사한 노래는?</div><br>
-	<div style="text-align:center;width:60%;"><img src="images/search1.PNG"><br><br></div>
+	<div style="text-align:center;width:60%;"><img src="images/aa.PNG"><br><br></div>
 	</div>
 	
 	<div class="part3">
