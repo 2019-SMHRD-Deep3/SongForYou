@@ -22,12 +22,11 @@ public class plcheck extends HttpServlet {
 		
 		String title = request.getParameter("title");
 		String singer = request.getParameter("singer");
-		System.out.println(title);
-		System.out.println(singer);
 		
 		
 		MusicDTO dto = new MusicDTO(singer, title);
 		MusicDAO dao = new MusicDAO();
+
 		MusicDTO url = dao.plcheck(dto);
 		
 		
@@ -35,7 +34,6 @@ public class plcheck extends HttpServlet {
 
 		Gson gson = new Gson(); 
 		String value = gson.toJson(url);
-		System.out.println(value); 
 		response.getWriter().print(value);
 
 	}

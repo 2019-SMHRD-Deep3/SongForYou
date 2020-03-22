@@ -42,7 +42,6 @@ public class MusicChk2 extends HttpServlet {
 		
 		Gson gson = new Gson();
 		String value = gson.toJson(list); 
-		System.out.println(value);
 		response.getWriter().print(value); 
 		
 	}

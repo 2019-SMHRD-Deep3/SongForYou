@@ -41,7 +41,6 @@ public class MusicResult extends HttpServlet {
 			MusicResultDAO dao = new MusicResultDAO();
 			
 			String resultS = dao.searchR(dto);
-			System.out.println(resultS);
 			
 			String[] finalresult = resultS.split(",");
 			for (int i = 0; i < finalresult.length; i++) {

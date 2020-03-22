@@ -22,6 +22,7 @@ public class Delete extends HttpServlet {
 		String[] id = request.getParameterValues("id");
 
 		for(int i=0;i<id.length;i++) {
+			System.out.println(id[i]);
 			dao.delete(id[i]);
 		}
 		return ;
