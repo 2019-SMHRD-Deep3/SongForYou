@@ -14,6 +14,13 @@ public class MusicDTO {
 		this.title = title;
 	}
 	
+	public MusicDTO(String singer, String title, String chord, String img) {
+		this.singer = singer;
+		this.title = title;
+		this.chord = chord;
+		this.img = img;
+	}
+	
 	
 	public MusicDTO(int num, String singer, String title, String chord) {
 		this.num = num;

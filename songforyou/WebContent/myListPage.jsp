@@ -212,15 +212,10 @@ width : 1%;
 		<div class="search-modal-content">
 		
 			
-					<img src='images/ZICO.jpg'  style = 'width : 300px; height : 300px;' alt="" ><br><br>
-				<div align = 'center'> 아무노래 </div>
-				<div align = 'center' id = 'singerr'> ZICO</div>
-			<br>
-			<audio id = 'auau' controls><source src="
-    		    	      			  music/지코-아무노래.mp3
-    		    	      			  " type='audio/ogg'></audio>
-
-				<br id = 'eee'><br>
+<!-- 					<img src='images/ZICO.jpg'  style = 'width : 300px; height : 300px;' alt="" ><br><br><div align = 'center'> 아무노래 </div><div align = 'center' id = 'singerr'> ZICO</div><br><audio id = 'auau' controls><source src="music/지코-아무노래.mp3" type='audio/ogg'></audio> -->
+					
+					<br id = 'eee'>
+					<br>
 					
 				
 		
@@ -279,28 +274,41 @@ width : 1%;
     	  console.log(title);
     	  console.log(singer);
 
-    	  $("#modal").show();
-    	  
     	 
+    	  
+    	 $('#imgg').remove();
+    	 $('.brr').remove();
+    	 $('.divv').remove();
+    	 $('#auau').remove();
 
-    		
-    	 /* 	$.ajax({
-    			url : "http://localhost:8088/secondproject/MusicPlayer.jsp",
+    	  
+    	  	$.ajax({
+    			url : "plcheck.do",
     			type : 'post',
     			dataType : "json",
     			data : {'title':title, 'singer':singer},
-    			success : function(result){ */
-    		    	/*   $('#musicplay').remove();
-    		    	  $('#here').append("<audio controls><source src="
-    		    	      			  +result+
-    		    	      			  " type='audio/ogg'></audio>");
-    		    	  console.log(result); */
-    		/* 	}
-    		})  */
+    			success : function(result){ 
+    				
+    				
+    				
+    				$('#eee').before("<img id = 'imgg'src="+result.img+" style = 'width : 300px; height : 300px;' alt=''><br class = 'brr'><br class = 'brr'><div class = 'divv' align = 'center'>"+result.title+" </div><div class = 'divv' align = 'center' id = 'singerr'>"+result.singer+"</div><br class = 'brr'><audio id = 'auau' controls><source src="+result.chord+" type='audio/ogg'></audio>");
+    		    	  
+    				console.log(result.title+'타이틀');
+    				console.log(result.singer+'싱어');
+    				console.log(result.img+'이미지');
+    				console.log(result.chord+'코드');
+    		    	  
+    		 	}
+    		})  
+    		
+    		 $("#modal").show();
+    	  	
+    	  	
       })
       
 							function closeModal() {
-    	 						
+    	 						var auau = document.getElementById('auau');
+    	 						auau.pause();
 								$('.searchModal').hide();
 							};
 							

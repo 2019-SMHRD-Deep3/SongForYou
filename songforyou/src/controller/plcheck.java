@@ -26,7 +26,11 @@ public class plcheck extends HttpServlet {
 		
 		MusicDTO dto = new MusicDTO(singer, title);
 		MusicDAO dao = new MusicDAO();
-		String url = dao.plcheck(dto);
+
+		MusicDTO url = dao.plcheck(dto);
+		
+		
+		System.out.println(url);
 
 		Gson gson = new Gson(); 
 		String value = gson.toJson(url);

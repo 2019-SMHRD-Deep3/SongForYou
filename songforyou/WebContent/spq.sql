@@ -48,9 +48,19 @@ CREATE TABLE "HR"."SONGTITLE"
    INSERT INTO SONGRESULT VALUES ('마음을 드려요', '아이유', '타이틀,가수,노래,타이틀,가수,노래,타이틀,가수,노래,타이틀,가수,노래,타이틀,가수,노래,타이틀,가수,노래')
    
 
+INSERT INTO songtitle VALUES (11,'마음을 드려요','f','아이유','images/IU.png');
+INSERT INTO songtitle VALUES (12,'그날우리','music/백호(뉴이스트)-그날우리.mp3','백호(뉴이스트)','images/baekho.jpg');
+INSERT INTO songtitle VALUES (13,'Here I Am','music/산들(B1A4)-Here I Am.mp3','산들(B1A4)','images/hereiam.jpg');
+INSERT INTO songtitle VALUES (14,'설렘','music/오왠-설렘.mp3','오왠','images/owen.jpg');
+INSERT INTO songtitle VALUES (15,'Make it count','music/첸(CHEN)-Make it count.mp3','첸','images/makeitcount.jpg');
+INSERT INTO songtitle VALUES (16,'있잖아','music/폴킴-있잖아.mp3','폴킴','images/paulkim.jpg');
+INSERT INTO songtitle VALUES (17,'Think of You','music/하성운-Think of You.mp3','하성운','images/thinkofyou.jpg');
 
+놔, the end
 
-INSERT INTO songtitle VALUES (1,'마음을 드려요','f','아이유','images/IU.png');
+INSERT INTO songresult VALUES('시작','가호','있잖아,폴킴,images/paulkim.jpg,설렘,오왠,images/owen.jpg,그날우리,백호(뉴이스트),images/baekho.jpg,Think of You,하성운,images/thinkofyou.jpg,놔,김현정,images/kimhyunjung.jpg,The end,이현우,images/theend.jpg')
+
+INSERT INTO songtitle VALUES (1,'시작','music/가호-시작.mp3','가호','images/start.jpg');
 INSERT INTO songtitle VALUES (2,'아무노래','music/지코-아무노래.mp3','ZICO','images/ZICO.jpg');
 INSERT INTO songtitle VALUES (3,'그때 그 아인','f','김필','images/Kimfeel.jpg');
 INSERT INTO songtitle VALUES (4,'늦은 밤 너의 집 앞 골목길에서','music/노을-늦은 밤 너의 집 앞 골목길에서.mp3','노을','images/Noeul.jpg');
