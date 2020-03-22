@@ -119,19 +119,27 @@ public class MusicDAO {
 		return list;
 	}
 
-	public String plcheck(MusicDTO dto) {
+	public MusicDTO plcheck(MusicDTO dto) {
+		
+		MusicDTO info = null;
+		
 		String play = null;
+		String img = null;
 		
 		try {
 			getConnection();
-			String sql = "select chord from songtitle where title=? and singer=?";
+			String sql = "select * from songtitle where title=? and singer=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.gettitle());
 			psmt.setString(2, dto.getSinger());
 			rs = psmt.executeQuery();
 			
 			if(rs.next()) {
-				play = rs.getString(1);
+				play = rs.getString(3);
+				img = rs.getString(5);
+				
+				info = new MusicDTO(dto.getSinger(), dto.gettitle(), play, img);
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -142,7 +150,7 @@ public class MusicDAO {
 		
 		
 		
-		return play;
+		return info;
 	}
 	
 	

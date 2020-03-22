@@ -19,9 +19,33 @@
 </noscript>
 <style>
 
+/* The Modal (background) */
+.searchModal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 10; /* Sit on top */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content/Box */
+.search-modal-content {
+background-color: #fefefe;
+margin: 15% auto; /* 15% from the top and centered */
+padding: 20px;
+border: 1px solid #888;
+width: 18%; /* Could be more or less, depending on screen size */
+height : 58%;
+}
+
+
 #input {
-   width: 50%;
-   height: 60px;
+   width: 25%;
+   height: 50px;
 }
 .hide {
 	color: white;
@@ -105,6 +129,12 @@ modal-table{
 	border-bottom: 1px solid #EAEAEA !important;
 }
 
+#singerr {
+	color: #E8847B; 
+	
+	font-weight: bold;
+}
+
 </style>
 </head>
 <body>
@@ -175,8 +205,28 @@ modal-table{
 			</table>
             </div>
          </section>
-      </div>      
-    <script src="assets/js/jquery.min.js"></script>
+      </div>
+	<div id="modal" class="searchModal">
+		<div class="search-modal-content">
+		
+			
+<!-- 					<img src='images/ZICO.jpg'  style = 'width : 300px; height : 300px;' alt="" ><br><br><div align = 'center'> 아무노래 </div><div align = 'center' id = 'singerr'> ZICO</div><br><audio id = 'auau' controls><source src="music/지코-아무노래.mp3" type='audio/ogg'></audio> -->
+					
+					<br id = 'eee'>
+					<br>
+					
+				
+		
+			
+			<div
+				style="cursor: pointer; background-color: #999999; text-align: center; width : 100%; height : 50px;"
+				onClick="closeModal();"><img src = "images/xxx.png" style = 'width : 50px; height : 50px;'>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -215,74 +265,128 @@ modal-table{
       </script>
       <script>
       $('#musicplay').on('click',function(){
+    	  
+    	  /* window.open('MusicPlayer.jsp','뮤직플레이어','width=430,height=500,location=no,status=no'); */
     	  var title = $('#title').text();
     	  var singer = $('#singer').text();
     	  console.log(title);
     	  console.log(singer);
 
-    	
-    		$.ajax({
-    			url : 'plcheck.do',
+    	 
+    	  
+    	 $('#imgg').remove();
+    	 $('.brr').remove();
+    	 $('.divv').remove();
+    	 $('#auau').remove();
+
+    	  
+    	  	$.ajax({
+    			url : "plcheck.do",
     			type : 'post',
     			dataType : "json",
     			data : {'title':title, 'singer':singer},
-    			success : function(result){
-    		    	  $('#musicplay').remove();
-    		    	  $('#here').append("<audio controls><source src="
-    		    	      			  +result+
-    		    	      			  " type='audio/ogg'></audio>");
-    		    	  console.log(result);
-    			}
-    		})
+    			success : function(result){ 
+    				
+    				
+    				
+    				$('#eee').before("<img id = 'imgg'src="+result.img+" style = 'width : 300px; height : 300px;' alt=''><br class = 'brr'><br class = 'brr'><div class = 'divv' align = 'center'>"+result.title+" </div><div class = 'divv' align = 'center' id = 'singerr'>"+result.singer+"</div><br class = 'brr'><audio id = 'auau' controls><source src="+result.chord+" type='audio/ogg'></audio>");
+    		    	  
+    				console.log(result.title+'타이틀');
+    				console.log(result.singer+'싱어');
+    				console.log(result.img+'이미지');
+    				console.log(result.chord+'코드');
+    		    	  
+    		 	}
+    		})  
+    		
+    		 $("#modal").show();
+    	  	
+    	  	
       })
-		$('.bin2').on(
-				'click',
-				function() {
+      
+							function closeModal() {
+    	 						var auau = document.getElementById('auau');
+    	 						auau.pause();
+								$('.searchModal').hide();
+							};
 
-					var s = [];
-					var d = [];
+							$('.bin2')
+									.on(
+											'click',
+											function() {
 
-					var Allselect = $('.Allselect').val();
-					var selectt = $('.selectt').val();
+												var s = [];
+												var d = [];
 
-					var titles = $('input[name=determine]:checked').parent().next().next().text();
-					var singers = $('input[name=determine]:checked').parent().next().next().next().text();
-					var id = $('input[name=determine]:checked').parent().next().next().next().next().next().text();
-					
-					if ($("input[name='all']").prop("checked")){
-						$.ajax({
-						    type : 'post',
-						    url : 'AllDelete', 
-						    dataType : 'text',
-						    success : function(result) { // 결과 성공 콜백함수
-						        console.log(result);
-						    $('#ttt').empty();
-						    },
-						    error : function(request, status, error) { // 결과 에러 콜백함수
-						        console.log(error)
-						    }
-						});
-						window.location.href="myListPage.jsp";
-					}else if ($("input[name='all']").prop("checked",false)){
-					$.ajax({
-						
-						type : 'post',
-						url : 'Delete',
-						data : {'id':id},
-						success : function(result) {
-							
-							alert("성공");
-							
-							
-						},
-						error : function(request, status, error) { // 결과 에러 콜백함수
-							console.log(error)
-						}
-						
-					});}
-					window.location.href="myListPage.jsp";
-				});
-	</script>
+												var Allselect = $('.Allselect')
+														.val();
+												var selectt = $('.selectt')
+														.val();
+
+												var titles = $(
+														'input[name=determine]:checked')
+														.parent().next().next()
+														.text();
+												var singers = $(
+														'input[name=determine]:checked')
+														.parent().next().next()
+														.next().text();
+												var id = $(
+														'input[name=determine]:checked')
+														.parent().next().next()
+														.next().next().next()
+														.text();
+
+												if ($("input[name='all']")
+														.prop("checked")) {
+													$
+															.ajax({
+																type : 'post',
+																url : 'AllDelete',
+																dataType : 'text',
+																success : function(
+																		result) { // 결과 성공 콜백함수
+																	console
+																			.log(result);
+																	$('#ttt')
+																			.empty();
+																},
+																error : function(
+																		request,
+																		status,
+																		error) { // 결과 에러 콜백함수
+																	console
+																			.log(error)
+																}
+															});
+													window.location.href = "myListPage.jsp";
+												} else if ($(
+														"input[name='all']")
+														.prop("checked", false)) {
+													$.ajax({
+
+														type : 'post',
+														url : 'Delete',
+														data : {
+															'id' : id
+														},
+														success : function(
+																result) {
+
+															alert("성공");
+
+														},
+														error : function(
+																request,
+																status, error) { // 결과 에러 콜백함수
+															console.log(error)
+														}
+
+													});
+												}
+												window.location.href = "myListPage.jsp";
+											});
+						</script>
 </body>
 </html>
 
