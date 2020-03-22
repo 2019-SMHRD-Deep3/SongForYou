@@ -346,8 +346,7 @@ modal-table{
 																dataType : 'text',
 																success : function(
 																		result) { // 결과 성공 콜백함수
-																	console
-																			.log(result);
+																	alert("삭제하였습니다.");
 																	$('#ttt')
 																			.empty();
 																},
@@ -373,7 +372,7 @@ modal-table{
 														success : function(
 																result) {
 
-															alert("성공");
+															alert("삭제하였습니다.");
 
 														},
 														error : function(
