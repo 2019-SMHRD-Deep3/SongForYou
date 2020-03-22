@@ -14,10 +14,10 @@
 </noscript>
 <style>
 body{background : white}
-div{
-/* 	position: absolute;
-	margin: 0px; */
-	
+.all{
+	width:80%;
+	margin:0 auto;
+	text-align:center;
 }
 img{
 	float: center !important;
@@ -25,7 +25,7 @@ img{
 </style>
 </head>
 <body>
-
+	
 	<div class="navv">
 	<nav id="nav">
 		<ul>
@@ -40,12 +40,12 @@ img{
 		</ul>
 	</nav></div><br><br><br><br><br>
 	
-	<div style="width:80%;align:center;">
+	<div class="all">
 	<div class="intro" style="color:#FFC7BE;font-size:60px;">
-	<header>Song For You</header></div>
+	<header>Song For You</header></div><br><br>
 	
 	<div class="part1">
-	<div class="one" style="width:150px;height:100px;float:left;text-align:right;font-size:100px;color:#FFC7BE">
+	<div class="one" style="width:200px;height:100px;float:left;text-align:right;font-size:100px;color:#FFC7BE">
 	01</div>
 	<div class="search" style="height:100px;float:left"> 취향에 맞는 노래를 검색해보세요<br>
 	</div><br>
