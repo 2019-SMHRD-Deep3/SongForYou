@@ -486,6 +486,10 @@ form {
 	</script>
 
 	<script>
+	
+	
+	   
+	   
 		$('#inputt').on('keyup', checkMusic);
 		var ff = [];
 		var li;
@@ -634,33 +638,43 @@ form {
 	</script> -->
 	
 	<script>
-		$('#search').on('click', function(){
+	function aaa(){
+		
+		var title = $('#inputt').val();
+		console.log(title);
+		
+	 	$('.sj').remove();
+	 	
+	   	$.ajax({
+	 		
+	 		url : "MusicResult.do",
+	 		type : 'post',
+	 		dataType : "json",
+	 		data : {'title':title},
+	 		success : function(rs){
+	 			
+	 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[2]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[0]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[1]+"</h1></p></article");
+	 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[5]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[3]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[4]+"</h1></p></article");
+	 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[8]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[6]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[7]+"</h1></p></article");
+	 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[11]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[9]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[10]+"</h1></p></article");
+	 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[14]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[12]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[13]+"</h1></p></article");
+	 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[17]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[15]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[16]+"</h1></p></article");
 			
-			var title = $('#inputt').val();
-			console.log(title);
+	 			
+	 		}
+	 		
+	 	})  
+	 	
+	}
+		$('#search').on('click',aaa )
+		
+		$('#inputt').on('keydown',function(){
 			
-		 	$('.sj').remove();
-		 	
-		   	$.ajax({
-		 		
-		 		url : "MusicResult.do",
-		 		type : 'post',
-		 		dataType : "json",
-		 		data : {'title':title},
-		 		success : function(rs){
-		 			
-		 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[2]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[0]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[1]+"</h1></p></article");
-		 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[5]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[3]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[4]+"</h1></p></article");
-		 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[8]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[6]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[7]+"</h1></p></article");
-		 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[11]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[9]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[10]+"</h1></p></article");
-		 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[14]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[12]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[13]+"</h1></p></article");
-		 			$('#brbr').after("<article class='sj'><a href='#' class='image featured' id='song_info'><img src="+rs[17]+"alt=></a><header><h3><input src='images/addgray.png' class='gray' type='image'border='0' name='add'></h3></header><p>"+rs[15]+"</p><p><h1 style='color: #E8847B; font-weight: bold; margin-top:10px;'>"+rs[16]+"</h1></p></article");
+			if(event.keyCode == 13){
 				
-		 			
-		 		}
-		 		
-		 	})  
-		 	
+				aaa();
+			}
+			
 		})
 	
 	</script>
